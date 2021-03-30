@@ -1,0 +1,25 @@
+.header-page {
+  min-height: 230px;
+  background: #e8e9eb;
+}
+
+.header-category-container {
+  margin-top: 4rem !important;
+}
+
+.header-category-list li {
+  position: relative;
+  &::before {
+    content: '|';
+    position: absolute;
+    right: -50%;
+    top: 0%;
+  }
+  &:last-child::before {
+    display: none !important;
+  }
+}
+
+.search-input {
+  border-radius: 20px;
+}
