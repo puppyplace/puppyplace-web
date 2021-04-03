@@ -3,8 +3,15 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+// google fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;1,100&display=swap');
+
 // variaveis
 @import './assets/styles/variables.scss';
 
 // components
 @import './assets/styles/components.scss';
+
+* {
+  font-family: 'Montserrat', 'helvetica', 'arial';
+}

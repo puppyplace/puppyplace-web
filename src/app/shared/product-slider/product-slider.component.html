@@ -1,0 +1,22 @@
+<div class="position-relative">
+  <a class="slider-button prev-button" (click)="prevCard($event)" href="#"> <span> &nbsp; </span> </a>
+  <a class="slider-button next-button" (click)="nextCard($event)" href="#"> <span> &nbsp; </span> </a>
+
+  <div class="slider-products-holder">
+    <div #canvas class="slider-canvas col-md-12 mx-0 mt-5 flex-wrap d-flex justify-content-start align-items-center flex-nowrap py-4">
+      <ng-container *ngFor="let product of carouselProductsData">
+        <div #box class="box-product py-3 px-4">
+          <div class="box-image-holder">
+            <img class="w-50 offset-4" [src]="product.image">
+          </div>
+          <div class="mt-3">
+            <p class="font-weight-bold"> <span> {{ product.title }} </span> </p>
+            <p> {{ product.description }} </p>
+            <p class="font-weight-bold"> {{ product.amount | currency: 'BRL' }} </p>
+            <button class="btn btn-primary col-md-12"> Adicionar ao carrinho </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
