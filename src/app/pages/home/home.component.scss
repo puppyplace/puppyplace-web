@@ -1,5 +1,5 @@
 .page-section {
-  margin-top: 7em;
+  margin-top: 15em;
 }
 
 .btn-filter {
@@ -9,4 +9,17 @@
     background: var(--primary-color);
     color: var(--light-color);
   }
+}
+
+form input, select {
+  color: var(--gray-2);
+  background: var(--secondary-color-light-3);
+}
+
+form input::placeholder {
+  color: var(--secondary-color);
+}
+
+form button {
+  background: var(--complementary);
 }

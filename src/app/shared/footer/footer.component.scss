@@ -1,7 +1,29 @@
+footer {
+  margin-top: 10em;
+}
+
 footer svg {
-    z-index: -1;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 35rem;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35rem;
+
+  .path-1 {
+    fill: var(--secondary-color-light-3);
   }
+
+  .path-2 {
+    fill: var(--secondary-color-light-2);
+  }
+
+  .path-3 {
+    fill: var(--secondary-color);
+  }
+}
+
+.content {
+  color: var(--light-color);
+  padding-bottom: 5em;
+}
+

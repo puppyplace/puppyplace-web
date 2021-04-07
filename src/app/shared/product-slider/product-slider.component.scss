@@ -40,3 +40,20 @@
   right: -7%;
   background: url('src/assets/images/slider/next.svg') no-repeat 0% 50% !important;
 }
+
+.title {
+  color: var(--gray-3);
+}
+
+.description {
+  color: var(--gray-1);
+}
+
+.price {
+  color: var(--gray-3);
+}
+
+.slider-products-holder button {
+  color: var(--light-color);
+  background: linear-gradient(180deg,var(--secondary-color-light-2) 0%,var(--secondary-color) 100%);
+}

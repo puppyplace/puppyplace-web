@@ -10,10 +10,10 @@
             <img class="w-50 offset-4" [src]="product.image">
           </div>
           <div class="mt-3">
-            <p class="font-weight-bold"> <span> {{ product.title }} </span> </p>
-            <p> {{ product.description }} </p>
-            <p class="font-weight-bold"> {{ product.amount | currency: 'BRL' }} </p>
-            <button class="btn btn-primary col-md-12"> Adicionar ao carrinho </button>
+            <p class="font-weight-bold title"> <span> {{ product.title }} </span> </p>
+            <p class="description"> {{ product.description }} </p>
+            <p class="font-weight-bold price"> {{ product.amount | currency: 'BRL' }} </p>
+            <button class="btn col-md-12"> Adicionar ao carrinho </button>
           </div>
         </div>
       </ng-container>
