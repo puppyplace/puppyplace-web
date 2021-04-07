@@ -28,10 +28,10 @@ export class HomeComponent implements OnInit {
     const filters = this.btnFilter.toArray();
 
     // remove a classe primary de todos os botoes primeiro
-    filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('primary'));
+    filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('secundary'));
 
     // aplica a classe no botao escolhido
-    el.classList.add('primary');
+    el.classList.add('secundary');
   }
 
 }
