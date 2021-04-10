@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     // transforma queryList em array
     const filters = this.btnFilter.toArray();
 
-    // remove a classe primary de todos os botoes primeiro
+    // remove a classe secundary de todos os botoes primeiro
     filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('secundary'));
 
     // aplica a classe no botao escolhido
