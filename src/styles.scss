@@ -6,6 +6,8 @@
 // google fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;1,100&display=swap');
 
+// Indie Flower font
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 // variaveis
 @import './assets/styles/variables.scss';
 
@@ -14,4 +16,17 @@
 
 * {
   font-family: 'Montserrat', 'helvetica', 'arial';
+} 
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, var(--primary-color-light-4) 24%, var(--secondary-color-light-4) 87.2%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }
