@@ -25,7 +25,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background: linear-gradient(180deg, #fcf0ed61 24%, #f0edfc57 87.2%);
+  background: linear-gradient(180deg, var(--primary-color-light-4) 24%, var(--secondary-color-light-4) 87.2%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 
