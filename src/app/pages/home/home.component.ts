@@ -27,11 +27,11 @@ export class HomeComponent implements OnInit {
     // transforma queryList em array
     const filters = this.btnFilter.toArray();
 
-    // remove a classe secundary de todos os botoes primeiro
-    filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('secundary'));
+    // remove a classe selected de todos os botoes primeiro
+    filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('selected'));
 
     // aplica a classe no botao escolhido
-    el.classList.add('secundary');
+    el.classList.add('selected');
   }
 
 }

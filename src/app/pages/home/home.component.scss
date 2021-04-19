@@ -1,5 +1,5 @@
 .page-section {
-  margin-top: 13em;
+  margin-top: 10em;
 }
 
 .item-main-slider {
@@ -26,32 +26,155 @@
   background: var(--secondary-color-light-3);
   color: var(--gray-2);
 
-  &.primary {
-    background: var(--secondary-color);
+  &:hover {
+    background: var(--secondary-color-light-4);
+  }
+
+  &.selected {
+    background: var(--secondary-color-light-1);
     color: var(--light-color);
+
+    &:hover {
+      background: var(--secondary-color);
+    }
   }
 }
 
 .product-list h3 {
   color: var(--gray-3);
-  font-size: 48px;
-  line-height: 59px;
+  font-size: 36px;
+  line-height: 60px;
 }
 
-form input,
-select {
+.form-section h3 {
+  color: var(--gray-3);
+  font-size: 36px;
+  line-height: 60px;
+}
+
+.form-section p {
+  color: var(--gray-2);
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+}
+
+.form-section form input {
   color: var(--gray-2);
   background: var(--secondary-color-light-3);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-form input::placeholder {
-  color: var(--secondary-color);
-}
-
 form button {
+  letter-spacing: 0.05em;
   color: var(--secondary-color);
-  background: var(--complementary);
+  background: var(--complementary-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
+
+  &:hover {
+    background: var(--complementary-color-dark-1);
+  }
+}
+
+.paws {
+  position: absolute;
+  z-index: -1;
+}
+
+.paws-1 {
+  transform: rotate(-135.45deg);
+  top: -6em;
+  right: 84em;
+}
+
+.paws-2 {
+  transform: rotate(-135.45deg);
+  top: 1em;
+  right: 80em;
+}
+
+.paws-3 {
+  transform: rotate(-54.37deg);
+  top: -3em;
+  right: 59em;
+}
+
+.paws-4 {
+  transform: rotate(-54.37deg);
+  top: -8em;
+  right: 52em;
+}
+
+.paws-5 {
+  transform: rotate(-41.6deg);
+  top: 5em;
+  right: 40em;
+}
+
+.paws-6 {
+  transform: rotate(-41.6deg);
+  top: -5em;
+  right: 35em;
+}
+
+.paws-7 {
+  transform: rotate(46.15deg);
+  top: 0em;
+  right: 0em;
+}
+
+.paws-8 {
+  transform: rotate(46.15deg);
+  top: -6em;
+  right: -11em;
+}
+
+.paws-9 {
+  transform: rotate(141.38deg);
+  top: -8em;
+  right: 84em;
+}
+
+.paws-10 {
+  transform: rotate(141.38deg);
+  top: -17em;
+  right: 77em;
+}
+
+.paws-11 {
+  transform: rotate(18.37deg);
+  top: -5em;
+  right: 50em;
+}
+
+.paws-12 {
+  transform: rotate(18.37deg);
+  top: -2em;
+  right: 37em;
+}
+
+.paws-13 {
+  transform: rotate(-41.6deg);
+  top: -8em;
+  right: -15em;
+}
+
+.paws-14 {
+  transform: rotate(-41.6deg);
+  top: -5em;
+  right: -3em;
+}
+
+.paws-15 {
+  transform: rotate(46.15deg);
+  top: 27em;
+  right: 77em;
+}
+
+.paws-16 {
+  transform: rotate(46.15deg);
+  top: 33em;
+  right: 69em;
 }

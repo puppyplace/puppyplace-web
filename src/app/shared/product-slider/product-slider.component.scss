@@ -11,8 +11,8 @@
 .box-product {
 
   width: 32%;
-  min-width: 360px;
-  margin-right: 1.7%;
+  min-width: 290px;
+  margin-right: 11%;
 
   background: var(--light-color);
   box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.2);
@@ -24,7 +24,8 @@
   width: 100%;
   height: auto;
   background: url('src/assets/images/products/box-effect.svg') no-repeat;
-  background-position: 30px 70px;
+  background-position: 0px 30px;
+  background-size: contain;
 }
 
 // buttons control
@@ -57,12 +58,12 @@
 
 .slider-products-holder button {
   color: var(--light-color);
-  background: linear-gradient(180deg,var(--secondary-color-light-2) 0%,var(--secondary-color) 100%);
+  background: var(--secondary-color-light-1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   transition: background-color 0.2s;
 
   &:hover {
-    background: linear-gradient(180deg,var(--secondary-color) 0%,var(--secondary-color-light-2) 100%);
+    background: var(--secondary-color);
   }
 }
