@@ -8,6 +8,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductSliderComponent } from './shared/product-slider/product-slider.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { PawsComponent } from './shared/paws/paws.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     HomeComponent,
     HeaderComponent,
     ProductSliderComponent,
-    FooterComponent
+    FooterComponent,
+    PawsComponent
   ],
   imports: [
     BrowserModule,

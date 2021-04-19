@@ -1,89 +1,183 @@
 <app-header></app-header>
-<section class="container px-0">
+  <section class="container px-0">
 
-  <!-- slider principal -->
-  <div class="page-section">
+    <!-- slider principal -->
+    <div class="page-section">
 
-    <ngb-carousel #slider [showNavigationIndicators]="true" [wrap]="true" [interval]="0" [animation]="true">
-      <ng-container *ngFor="let slide of carouselData; let i = index">
+      <ngb-carousel #slider [showNavigationIndicators]="true" [wrap]="true" [interval]="0" [animation]="true">
+        <ng-container *ngFor="let slide of carouselData; let i = index">
 
-        <ng-template ngbSlide>
-          <div class="col-md-12 mx-0 px-0 d-flex justify-content-between align-items-center">
-            <div class="col-md-8 mx-0 px-0 item-main-slider">
-              <h2> {{ slide.title }} </h2>
-              <p class="mt-2"> {{ slide.description }} </p>
+          <ng-template ngbSlide>
+            <div class="col-md-12 mx-0 px-0 d-flex justify-content-between align-items-center">
+              <div class="col-md-8 mx-0 px-0 item-main-slider">
+                <h2> {{ slide.title }} </h2>
+                <p class="mt-2"> {{ slide.description }} </p>
+              </div>
+              <div class="col-md-4 mx-0 px-0 d-flex justify-content-end">
+                <img [src]="slide.image" [alt]="'slider image ' + i">
+              </div>
             </div>
-            <div class="col-md-4 mx-0 px-0 d-flex justify-content-end">
-              <img [src]="slide.image" [alt]="'slider image ' + i">
-            </div>
-          </div>
-        </ng-template>
+          </ng-template>
 
-      </ng-container>
-    </ngb-carousel>
+        </ng-container>
+      </ngb-carousel>
 
-  </div>
-  <!-- slider principal (end) -->
-
-  <!-- carrosel de produtos -->
-  <div class="page-section col-md-12 mx-0 px-0 d-flex justify-content-start align-items-center product-list">
-    <div class="col-4 px-0">
-      <h3> Mais Vendidos </h3>
     </div>
-    <div class="col-7 col-md-12 mx-0 px-0 d-flex justify-content-start align-items-center">
-      <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4 selected"> Cachorros </a>
-      <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4"> Gatos </a>
-      <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4"> Passaros </a>
-    </div>
+    <!-- slider principal (end) -->
 
-    <img class="paws paws-1" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-2" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-3" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-4" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-5" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-6" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-7" src="assets/images/global/paws-body-1.svg"/>
-    <img class="paws paws-8" src="assets/images/global/paws-body-1.svg"/>
-  </div>
-  <app-product-slider [products]="carouselProductsData"></app-product-slider>
-  <!-- carrosel de produtos (end) -->
-
-  <!-- formulario -->
-  <div class="page-section col-md-12 mx-0 px-0 d-flex justify-content-between align-items-center">
-    
-    <div class="col-md-6 px-0">
-      <img class="w-100" src="assets/images/home/form-effect.svg" alt="">
-    </div>
-    <div class="form-section justify-content-between col-md-6 px-0">
-      
-      <div class="col-md-10 offset-1">
-        <h3> Lorem ipsum </h3>
-        <p class="mt-12"> 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+    <!-- carrosel de produtos -->
+    <div class="page-section col-md-12 mx-0 px-0 d-flex justify-content-start align-items-center product-list">
+      <div class="col-4 px-0">
+        <h3> Mais Vendidos </h3>
       </div>
-     
-      <form class="form col-md-10 offset-1">
-        <div class="form-group">
-          <input type="text" placeholder="Nome" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="Email" class="form-control">
-        </div>
-        <button class="btn col-md-12"> Enviar dados </button>
-      </form>
+      <div class="col-7 col-md-12 mx-0 px-0 d-flex justify-content-start align-items-center">
+        <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4 selected"> Cachorros </a>
+        <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4"> Gatos </a>
+        <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4"> Passaros </a>
+      </div>
+
+      
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'"
+          [angle]="-135.45"
+          [position]="{top: -6, right: 84}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="-135.45"
+          [position]="{top: 1, right: 80}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="-54.37"
+          [position]="{top: -3, right: 59}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="-54.37"
+          [position]="{top: -8, right: 52}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="-41.6"
+          [position]="{top: 5, right: 40}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="-41.6"
+          [position]="{top: -5, right: 35}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="46.15"
+          [position]="{top: 0, right: 0}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(250, 226, 220, 0.5)'" 
+          [angle]="46.15"
+          [position]="{top: -6, right: -11}">
+      </app-paws>
+      
     </div>
+    <app-product-slider [products]="carouselProductsData"></app-product-slider>
+    <!-- carrosel de produtos (end) -->
 
-    <img class="paws paws-9" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-10" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-11" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-12" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-13" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-14" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-15" src="assets/images/global/paws-body-2.svg"/>
-    <img class="paws paws-16" src="assets/images/global/paws-body-2.svg"/>
-  </div>
+    <!-- form -->
+    <div class="page-section col-md-12 mx-0 px-0 d-flex justify-content-between align-items-center">
+      
+      <div class="col-md-6 px-0">
+        <img class="w-100" src="assets/images/home/form-effect.svg" alt="">
+      </div>
+      <div class="form-section justify-content-between col-md-6 px-0">
+        
+        <div class="col-md-10 offset-1">
+          <h3> Lorem ipsum </h3>
+          <p class="mt-12"> 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      
+        <form class="form col-md-10 offset-1">
+          <div class="form-group">
+            <input type="text" placeholder="Nome" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+          </div>
+          <button class="btn col-md-12"> Enviar dados </button>
+        </form>
+      </div>
 
-</section>
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="141.38"
+          [position]="{top: -8, right: 84}">
+      </app-paws>
 
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="141.38"
+          [position]="{top: -17, right: 77}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="18.37"
+          [position]="{top: -5, right: 50}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="18.37"
+          [position]="{top: -2, right: 37}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="-41.6"
+          [position]="{top: -8, right: -15}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="-41.6"
+          [position]="{top: -5, right: -3}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="46.15"
+          [position]="{top: 27, right: 77}">
+      </app-paws>
+
+      <app-paws
+          [size]="{width: 55, height: 55}" 
+          [color]="'rgba(211, 202, 247, 0.3)'" 
+          [angle]="46.15"
+          [position]="{top: 33, right: 69}">
+      </app-paws>
+    </div>
+  </section>
 <app-footer></app-footer>
