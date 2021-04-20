@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProductsManagerComponent } from './pages/products-manager/products-manager.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { CategoriesManagerComponent } from './pages/categories-manager/categories-manager.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MenuComponent } from './shared/menu/menu.component';
     ProductsComponent,
     CategoriesComponent,
     ManagerComponent,
-    MenuComponent, ProductsManagerComponent
+    MenuComponent, ProductsManagerComponent, CategoriesManagerComponent
   ],
   imports: [
     CommonModule,
