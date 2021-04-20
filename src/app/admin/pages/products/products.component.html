@@ -1,7 +1,8 @@
 <section class="col-lg-12">
   <div class="container">
     <div class="mt-5">
-      <h3> Produtos </h3>
+      <h3 class="float-left"> Produtos </h3>
+      <a class="btn btn-secondary float-right" routerLink="/admin/product"> Novo produto </a>
       <table class="table table-striped">
         <thead class="thead-dark">
           <th> Nome </th>
@@ -17,7 +18,7 @@
               <td> {{ product.category }} </td>
               <td> {{ product.description }} </td>
               <td> {{ product.value | currency: 'BRL' }} </td>
-              <td> <button class="btn btn-primary"> ver </button> </td>
+              <td> <button (click)="goToProduct(product.id)" class="btn btn-primary"> ver </button> </td>
             </tr>
           </ng-container>
         </tbody>
