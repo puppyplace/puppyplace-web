@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PRODUCTS_MOCK } from '../../mocks/products.mock';
+import { Product } from '../../models/product.interface';
 
 @Component({
   selector: 'app-products',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  products: Array<Product>;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.products = PRODUCTS_MOCK;
   }
 
 }
