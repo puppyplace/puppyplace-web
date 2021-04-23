@@ -1,18 +1,18 @@
 .page-section {
-  margin-top: 10em;
+  margin-top: 5em;
 }
 
 .item-main-slider {
     h2 {
+      color: var(--gray-2);
       margin-bottom: 1.5em;
-      line-height: 59px;
-      font-size: 48px;
+      line-height: 60px;
+      font-size: 36px;
     }
 
     p { 
+      color: var(--gray-2);
       font-family: Source Sans Pro;
-      font-style: normal;
-      font-weight: normal;
       font-size: 20px;
       line-height: 25px;
       letter-spacing: 0.1em;
@@ -20,10 +20,10 @@
 }
 
 .btn-filter {
-  box-shadow: 0px 4px 4px var(--transparent-color);
-  border-radius: 25px;
 
   background: var(--secondary-color-light-3);
+  box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
   color: var(--gray-2);
 
   &:hover {
@@ -31,6 +31,7 @@
   }
 
   &.selected {
+    box-shadow: 0px 4px 4px var(--transparent-color);
     background: var(--secondary-color-light-1);
     color: var(--light-color);
 
@@ -41,13 +42,13 @@
 }
 
 .product-list h3 {
-  color: var(--gray-3);
+  color: var(--gray-2);
   font-size: 36px;
   line-height: 60px;
 }
 
 .form-section h3 {
-  color: var(--gray-3);
+  color: var(--gray-2);
   font-size: 36px;
   line-height: 60px;
 }
@@ -60,20 +61,33 @@
   letter-spacing: 0.1em;
 }
 
-.form-section form input {
-  color: var(--gray-2);
-  background: var(--secondary-color-light-3);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+.form-section form {
 
-form button {
-  letter-spacing: 0.05em;
-  color: var(--secondary-color);
-  background: var(--complementary-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 9px;
+  input {
+    height: 45px;
+    color: var(--gray-2);
+    background: var(--secondary-color-light-4);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  &:hover {
-    background: var(--complementary-color-dark-1);
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+
+    &:focus {
+      border: 1px solid var(--secondary-color-light-2);
+    }
   }
-}
+
+  button {
+    color: var(--light-color);
+    background: var(--complementary-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+  
+    &:hover {
+      background: var(--complementary-color-dark-1);
+    }
+  }
+} 

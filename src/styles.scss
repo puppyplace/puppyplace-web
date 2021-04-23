@@ -6,9 +6,9 @@
 // google fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;1,100&display=swap');
 
-// Indie Flower font
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 // variaveis
 @import './assets/styles/variables.scss';
 
@@ -21,6 +21,6 @@
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, var(--primary-color-light-4) 24%, var(--secondary-color-light-4) 87.2%);
+  background:  linear-gradient(180deg, var(--primary-color-light-3) 24.77%, var(--secondary-color-light-3) 88.35%);
   background-repeat: no-repeat;
 }

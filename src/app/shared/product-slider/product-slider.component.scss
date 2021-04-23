@@ -46,15 +46,17 @@
   background: url('src/assets/images/slider/next.svg') no-repeat 0% 50% !important;
 }
 
-.title,
-.price {
-  color: var(--gray-3);
+.title {
+  color: var(--gray-2);
 }
 
 .description {
   color: var(--gray-1);
 }
 
+.price {
+  color: var(--gray-3);
+}
 
 .slider-products-holder button {
   color: var(--light-color);

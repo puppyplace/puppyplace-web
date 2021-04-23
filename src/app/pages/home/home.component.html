@@ -4,16 +4,25 @@
     <!-- slider principal -->
     <div class="page-section">
 
+      <ng-container *ngFor="let paw of paws; let i = index">
+        <app-paw
+            [size]= paw.size
+            [color]=paw.color
+            [angle]=paw.angle
+            [position]=paw.position>
+          </app-paw>
+      </ng-container>
+
       <ngb-carousel #slider [showNavigationIndicators]="true" [wrap]="true" [interval]="0" [animation]="true">
         <ng-container *ngFor="let slide of carouselData; let i = index">
 
           <ng-template ngbSlide>
             <div class="col-md-12 mx-0 px-0 d-flex justify-content-between align-items-center">
-              <div class="col-md-8 mx-0 px-0 item-main-slider">
+              <div class="col-md-7 mx-0 px-0 item-main-slider">
                 <h2> {{ slide.title }} </h2>
                 <p class="mt-2"> {{ slide.description }} </p>
               </div>
-              <div class="col-md-4 mx-0 px-0 d-flex justify-content-end">
+              <div class="col-md-5 mx-0 px-0 d-flex justify-content-end">
                 <img [src]="slide.image" [alt]="'slider image ' + i">
               </div>
             </div>
@@ -35,63 +44,6 @@
         <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4"> Gatos </a>
         <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4"> Passaros </a>
       </div>
-
-      
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'"
-          [angle]="-135.45"
-          [position]="{top: -6, right: 84}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="-135.45"
-          [position]="{top: 1, right: 80}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="-54.37"
-          [position]="{top: -3, right: 59}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="-54.37"
-          [position]="{top: -8, right: 52}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="-41.6"
-          [position]="{top: 5, right: 40}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="-41.6"
-          [position]="{top: -5, right: 35}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="46.15"
-          [position]="{top: 0, right: 0}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(250, 226, 220, 0.5)'" 
-          [angle]="46.15"
-          [position]="{top: -6, right: -11}">
-      </app-paws>
       
     </div>
     <app-product-slider [products]="carouselProductsData"></app-product-slider>
@@ -123,61 +75,6 @@
         </form>
       </div>
 
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="141.38"
-          [position]="{top: -8, right: 84}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="141.38"
-          [position]="{top: -17, right: 77}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="18.37"
-          [position]="{top: -5, right: 50}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="18.37"
-          [position]="{top: -2, right: 37}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="-41.6"
-          [position]="{top: -8, right: -15}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="-41.6"
-          [position]="{top: -5, right: -3}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="46.15"
-          [position]="{top: 27, right: 77}">
-      </app-paws>
-
-      <app-paws
-          [size]="{width: 55, height: 55}" 
-          [color]="'rgba(211, 202, 247, 0.3)'" 
-          [angle]="46.15"
-          [position]="{top: 33, right: 69}">
-      </app-paws>
     </div>
   </section>
 <app-footer></app-footer>

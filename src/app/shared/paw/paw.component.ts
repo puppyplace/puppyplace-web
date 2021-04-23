@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-paws',
-  templateUrl: './paws.component.html',
-  styleUrls: ['./paws.component.scss']
+  selector: 'app-paw',
+  templateUrl: './paw.component.html',
+  styleUrls: ['./paw.component.scss']
 })
 
-export class PawsComponent implements OnInit {
+export class PawComponent implements OnInit {
   
   myStyle: object;
   
@@ -18,8 +18,8 @@ export class PawsComponent implements OnInit {
   ngOnInit() {
 
     this.myStyle = {
-      'width': `${this.size.width}px`,
-      'height': `${this.size.height}px`,
+      'width': `${this.size}px`,
+      'height': `${this.size}px`,
       'transform': `rotate(${this.angle}deg)`,
       'top': `${this.position.top}em`,
       'right': `${this.position.right}em`,

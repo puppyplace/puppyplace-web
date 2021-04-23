@@ -3,23 +3,20 @@ header svg {
   top: 0;
   width: 100%;
   height: 35rem;
-
-  .path-1 {
-    fill: var(--primary-color-light-3);
-  }
-
-  .path-2 {
-    fill: var(--primary-color-light-2);
-  }
+  
 }
 
 .title {
   margin: 0;
-  font-family: 'Indie Flower', cursive;
   font-size: 6em;
+  font-family: 'Wendy One', sans-serif;
   color: var(--light-color);
 
-  text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.2);
+  line-height: 101px;
+  letter-spacing: 0.05em;
+
+  text-shadow: 0px 6.74157px 4.04494px rgba(0, 0, 0, 0.2), 0px 13.4831px 40.4494px rgba(0, 0, 0, 0.2);
+  
 }
 
 .avatar { 
@@ -27,6 +24,7 @@ header svg {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: 1em;
 }
 
 .shop-cart {
@@ -44,13 +42,17 @@ header svg {
 .header-category-list {
   li {
     cursor: pointer;
-    font-family: Source Sans Pro;
+    font-family: Source Code Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 25px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     color: var(--light-color);
+
+    &:hover {
+      color: var(--primary-color-light-3);
+    }
     
   }
 
@@ -63,14 +65,11 @@ header svg {
   color: var(--gray-1);
   background: var(--primary-color-light-4);
   border-radius: 20px;
-  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-              inset 0px 4px 4px rgba(0, 0, 0, 0.10);
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0px 4px 4px var(--transparent-color);
 
   &:focus {
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.18),
-                0px 10px 25px rgba(0, 0, 0, 0.48),
-                inset 0px 4px 4px rgba(0, 0, 0, 0.10);
-    
+    border: 1px solid var(--primary-color-light-1);
   }
 }
