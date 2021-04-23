@@ -31,20 +31,22 @@ ngb-carousel {
 }
 
 .carousel-indicators li {
-  border-radius: 50px !important;
-  height: 25px !important;
-  width: 25px !important;
-  box-shadow: 0px 0px 2px #000;
-}
-
-.carousel-indicators li {
+  background: var(--primary-color-light-1) !important;
   border-radius: 70px !important;
   height: 3px !important;
   width: 17px !important;
   box-shadow: 0px 0px 2px #000 !important;
   border-width: 7px !important;
 
+  &:hover {
+    background: var(--primary-color-light-3)!important;
+  }
+
   &.active {
-    background: var(--primary-color-light-3);
+    background: var(--primary-color)!important;
+
+    &:hover {
+      background: var(--primary-color-dark-1)!important;
+    }
   }
 }

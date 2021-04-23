@@ -1,17 +1,17 @@
-<svg width="684" height="580" viewBox="0 0 684 580" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g filter="url(#filter0_iif)">
+<svg width="450" height="400" viewBox="0 0 507 432" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter_iif-1_carrosel)">
         <path
-        d="M587.549 112.792C500.854 47.0438 352.401 156.006 200.256 133.667C48.1118 111.328 -62.1998 569.429 122.014 548.992C306.228 528.554 553.263 635.57 628.289 506.69C703.315 377.809 674.244 178.541 587.549 112.792Z"
+        d="M413.269 66.2124C346.568 21.7722 242.321 108.566 129.452 98.9879C16.5834 89.4093 -43.9093 431.191 90.6137 407.875C225.137 384.559 411.584 452.126 460.947 353.991C510.311 255.856 479.97 110.653 413.269 66.2124Z"
         fill="url(#paint0_radial)" />
     </g>
-    <g filter="url(#filter1_iif)">
+    <g filter="url(#filter_iif-2_carrosel)">
         <path
-        d="M587.776 94.7922C501.08 29.0438 352.627 138.006 200.483 115.667C48.3383 93.328 -61.9732 551.429 122.241 530.992C306.454 510.554 553.489 617.57 628.515 488.69C703.542 359.809 674.471 160.541 587.776 94.7922Z"
+        d="M413.269 48.2124C346.568 3.7722 242.321 90.5664 129.452 80.9879C16.5834 71.4093 -43.9093 413.191 90.6137 389.875C225.137 366.559 411.584 434.126 460.947 335.991C510.311 237.856 479.97 92.6527 413.269 48.2124Z"
         fill="url(#paint1_radial)" />
     </g>
     <defs>
-        <filter id="filter0_iif" x="0.773438" y="6.29297" width="712.227" height="646.356"
-        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <filter id="filter_iif-1_carrosel" x="0" y="6.56445" width="506.624" height="460.002" filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB">
         <feFlood flood-opacity="0" result="BackgroundImageFix" />
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
@@ -30,7 +30,7 @@
         <feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow" />
         <feGaussianBlur stdDeviation="1.5" result="effect3_foregroundBlur" />
         </filter>
-        <filter id="filter1_iif" x="1" y="-11.707" width="712.227" height="646.356" filterUnits="userSpaceOnUse"
+        <filter id="filter_iif-2_carrosel" x="0" y="-11.4355" width="506.624" height="460.002" filterUnits="userSpaceOnUse"
         color-interpolation-filters="sRGB">
         <feFlood flood-opacity="0" result="BackgroundImageFix" />
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
@@ -51,14 +51,14 @@
         <feGaussianBlur stdDeviation="1.5" result="effect3_foregroundBlur" />
         </filter>
         <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-        gradientTransform="translate(356.887 326.971) rotate(98.9704) scale(259.498 316.523)">
-        <stop stop-color="#91A3D5" />
-        <stop offset="1" stop-color="#6D85C7" />
+        gradientTransform="translate(253.313 234.066) rotate(95.4682) scale(191.152 233.158)">
+        <stop stop-color="#91C5D5" />
+        <stop offset="1" stop-color="#6DB2C7" />
         </radialGradient>
         <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-        gradientTransform="translate(357.113 308.971) rotate(98.9704) scale(259.498 316.523)">
-        <stop stop-color="#91A3D5" />
-        <stop offset="1" stop-color="#6D85C7" />
+        gradientTransform="translate(253.313 216.066) rotate(95.4682) scale(191.152 233.158)">
+        <stop stop-color="#91C5D5" />
+        <stop offset="1" stop-color="#6DB2C7" />
         </radialGradient>
     </defs>
 </svg>
