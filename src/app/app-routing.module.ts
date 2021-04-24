@@ -8,10 +8,13 @@ const routes: Routes = [
     path: '',
     component: AppComponent,
     children: [
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
+      { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) }
     ]
   },
-  { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) }
+  {
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  }
 ];
 
 @NgModule({

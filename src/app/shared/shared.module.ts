@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { PawComponent } from './paw/paw.component';
 import { ProductSliderComponent } from './product-slider/product-slider.component';
 import { ProductListManagerComponent } from './product-list-manager/product-list-manager.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductListManagerComponent } from './product-list-manager/product-list
     ProductListManagerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
