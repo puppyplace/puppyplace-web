@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { CarouselData } from 'src/app/models/carousel-data.interface';
+import { ProductData } from 'src/app/models/carousel-data.interface';
 
 @Component({
   selector: 'app-product-slider',
@@ -28,7 +28,7 @@ export class ProductSliderComponent implements OnInit {
   private canvasEl: HTMLElement;
   private animationValue: number;
 
-  public carouselProductsData: Array<CarouselData>;
+  public carouselProductsData: Array<ProductData>;
 
   constructor(
     private cdr: ChangeDetectorRef

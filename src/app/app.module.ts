@@ -1,28 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProductSliderComponent } from './shared/product-slider/product-slider.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { PawComponent } from './shared/paw/paw.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    ProductSliderComponent,
-    FooterComponent,
-    PawComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

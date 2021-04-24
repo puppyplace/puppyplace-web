@@ -1,0 +1,31 @@
+@import '../../../../assets/styles/components/products.scss';
+
+.btn-filter {
+
+  background: var(--secondary-color-light-3);
+  box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  color: var(--gray-2);
+
+  &:hover {
+    background: var(--secondary-color-light-4);
+  }
+
+  &.selected {
+    box-shadow: 0px 4px 4px var(--transparent-color);
+    background: var(--secondary-color-light-1);
+    color: var(--light-color);
+
+    &:hover {
+      background: var(--secondary-color);
+    }
+  }
+}
+
+.pagination-num {
+  color: var(--primary-color-light-1);
+  &.active {
+    color: var(--primary-color-dark-1) !important;
+    font-weight: bold;
+  }
+}
