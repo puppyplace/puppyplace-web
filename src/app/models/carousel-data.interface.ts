@@ -1,4 +1,4 @@
-export interface CarouselData {
+export interface ProductData {
   title: string,
   description: string,
   image: string,
