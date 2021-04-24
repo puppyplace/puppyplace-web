@@ -17,10 +17,11 @@
 
 * {
   font-family: 'Montserrat', 'helvetica', 'arial';
-} 
+}
 
 body {
   margin: 0;
   background:  linear-gradient(180deg, var(--primary-color-light-3) 24.77%, var(--secondary-color-light-3) 88.35%);
   background-repeat: no-repeat;
+  overflow-x: hidden !important;
 }
