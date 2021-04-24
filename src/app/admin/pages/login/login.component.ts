@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendTo(): void {
-    this.router.navigate(['admin/dashboard'])
+  sendTo(ev: Event): void {
+    ev.preventDefault();
+    this.router.navigate(['/admin/dashboard'])
   }
 }
