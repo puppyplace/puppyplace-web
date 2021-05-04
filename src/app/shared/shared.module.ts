@@ -6,6 +6,8 @@ import { PawComponent } from './paw/paw.component';
 import { ProductSliderComponent } from './product-slider/product-slider.component';
 import { ProductListManagerComponent } from './product-list-manager/product-list-manager.component';
 import { RouterModule } from '@angular/router';
+import { LeadService } from './services/lead.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,9 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     PawComponent,
     ProductListManagerComponent
+  ],
+  providers: [
+      LeadService
   ],
   exports: [
     HeaderComponent,
@@ -24,7 +29,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
