@@ -40,13 +40,14 @@ export class HomeComponent implements OnInit {
     el.classList.add('selected');
   }
 
-  public createLead(){
+  public createLead() {
     this.leadService.create(this.lead).subscribe(result => {
         this.leadDone = true;
         this.leadStatus = true;
       }, error => {
         this.leadDone = true;
         this.leadStatus = false;
+        this.hideDialog();
       }, () => this.hideDialog())
   }
 

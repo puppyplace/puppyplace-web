@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ProductData } from 'src/app/models/carousel-data.interface';
 
 @Component({
@@ -8,16 +8,16 @@ import { ProductData } from 'src/app/models/carousel-data.interface';
 })
 export class ProductSliderComponent implements OnInit {
   @ViewChild('canvas', {static: false}) canvas: ElementRef<HTMLElement>;
-  @ViewChild('box', {static: false}) box: ElementRef<HTMLElement>;
+  @ViewChildren('box') box: QueryList<ElementRef>;
 
   @Input('products') set setProducts(value) {
     if (value !== undefined) {
-      this.current = 3;
+      this.current = 2;
       this.carouselProductsData = value;
       this.counter = this.carouselProductsData.length;
 
       this.cdr.detectChanges();
-      this.boxEl = (this.box.nativeElement as HTMLElement);
+      this.boxEl = (this.getBox(0) as HTMLElement);
       this.canvasEl = (this.canvas.nativeElement as HTMLElement);
     }
   }
@@ -40,22 +40,34 @@ export class ProductSliderComponent implements OnInit {
 
   nextCard(e: Event) {
     e.preventDefault();
-    if (this.current < this.counter) {
+    if ((this.current + 1) < this.counter) {
       this.current++;
+      this.boxEl = this.getBox(this.current);
 
-      this.animationValue -= (this.boxEl.clientWidth + 28);
+      const getStyles = window.getComputedStyle((this.boxEl as Element));
+      this.animationValue -= (this.boxEl.clientWidth + this.getMarginAsNumber(getStyles.marginRight));
       this.canvasEl.style.transform = `translate(${this.animationValue}px)`;
     }
   }
 
   prevCard(e: Event) {
     e.preventDefault();
-    if (this.current >= this.counter) {
+    if ((this.current - 1) >= 2) {
       this.current--;
+      this.boxEl = this.getBox(this.current);
 
-      this.animationValue += (this.boxEl.clientWidth + 28);
+      const getStyles = window.getComputedStyle((this.boxEl as Element));
+      this.animationValue += (this.boxEl.clientWidth + this.getMarginAsNumber(getStyles.marginRight));
       this.canvasEl.style.transform = `translate(${this.animationValue}px)`;
     }
   }
 
+  getBox(index: number): HTMLElement {
+    const arr = this.box.toArray();
+    return arr[index].nativeElement;
+  }
+
+  getMarginAsNumber(margin: string): number {
+    return Number(margin.replace(/px/g, ''));
+  }
 }
