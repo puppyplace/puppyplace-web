@@ -8,8 +8,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductsManagerComponent } from './pages/products-manager/products-manager.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { MenuComponent } from './shared/menu/menu.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
 import { CategoriesManagerComponent } from './pages/categories-manager/categories-manager.component';
+import { CategoryService } from './shared/services/category-service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { CategoriesManagerComponent } from './pages/categories-manager/categorie
   imports: [
     CommonModule,
     AdminRoutingModule
+  ],
+  providers: [
+    CategoryService
   ]
 })
 export class AdminModule { }
