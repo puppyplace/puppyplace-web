@@ -16,7 +16,7 @@ export class CategoriesManagerComponent implements OnInit {
   public categoryName: string;
 
   constructor(
-    private activieRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
     private router: Router
   ) { }
@@ -26,7 +26,7 @@ export class CategoriesManagerComponent implements OnInit {
     this.categoryName = '';
 
     // checa se existe algum id selecionado e trata o form como um update
-    this.activieRoute.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       if (!!params.id) {
         this.upadteFlag = true;
         this.categroyId = params.id;

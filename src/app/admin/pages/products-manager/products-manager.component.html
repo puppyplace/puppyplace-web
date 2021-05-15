@@ -2,75 +2,77 @@
   <div class="container mt-5">
     <h3> Produto </h3>
 
-    <form [formGroup]="productForm" action="">
+    <ng-container *ngIf="productForm !== undefined">
+      <form [formGroup]="productForm" action="">
 
-      <div class="col-lg-12 px-0 mx-0 row justify-content-between align-items-baseline">
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <input formControlName="title" placeholder="Nome" name="title" id="name" type="text" class="form-control">
-        </div>
-
-        <div class="input-group col-lg-3 pl-0 pr-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">R$</div>
+        <div class="col-lg-12 px-0 mx-0 row justify-content-between align-items-baseline">
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <input formControlName="title" placeholder="Nome" name="title" id="name" type="text" class="form-control">
           </div>
-          <input formControlName="price" type="number" name="value" id="value" class="form-control" id="inlineFormInputGroup" placeholder="Valor">
-        </div>
 
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <input formControlName="unit" placeholder="Unidade" name="title" id="name" type="number" class="form-control">
-        </div>
-
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <input formControlName="stock" placeholder="Estoque" name="title" id="name" type="number" class="form-control">
-        </div>
-
-
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <input formControlName="product_code" placeholder="Codigo do Produto" name="title" id="name" type="string" class="form-control">
-        </div>
-
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <input formControlName="isbn_code" placeholder="Isbn" name="title" id="name" type="string" class="form-control">
-        </div>
-
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <input formControlName="avatar_url" placeholder="Imagem" name="title" id="name" type="string" class="form-control">
-        </div>
-
-        <div class="form-group col-lg-3 pl-0 pr-2">
-          <select (change)="selectCategory($event.target.value)" name="category" id="category" type="text" class="form-control">
-            <option value=""> Selecione uma Categoria </option>
-            <ng-container *ngFor="let category of categories">
-              <option [value]="category.id"> {{ category.name }} </option>
-            </ng-container>
-          </select>
-        </div>
-
-        <div class="input-group col-lg-3 pl-0 pr-2">
-          <div class="input-group-prepend">
-            <div class="input-group-text">R$</div>
+          <div class="input-group col-lg-3 pl-0 pr-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">R$</div>
+            </div>
+            <input formControlName="price" type="number" name="value" id="value" class="form-control" id="inlineFormInputGroup" placeholder="Valor">
           </div>
-          <input formControlName="promotional_price" type="number" name="value" id="value" class="form-control" id="inlineFormInputGroup" placeholder="Valor Promocional">
-        </div>
-      </div>
 
-      <div class="row mx-0 px-0 justify-content-between align-items-center mt-4">
-        <div class="form-group col-lg-6 px-1">
-          <label for="description"> Especificacoes: </label>
-          <textarea formControlName="specifications" class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <input formControlName="unit" placeholder="Unidade" name="title" id="name" type="number" class="form-control">
+          </div>
+
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <input formControlName="stock" placeholder="Estoque" name="title" id="name" type="number" class="form-control">
+          </div>
+
+
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <input formControlName="product_code" placeholder="Codigo do Produto" name="title" id="name" type="string" class="form-control">
+          </div>
+
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <input formControlName="isbn_code" placeholder="Isbn" name="title" id="name" type="string" class="form-control">
+          </div>
+
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <input formControlName="avatar_url" placeholder="Imagem" name="title" id="name" type="string" class="form-control">
+          </div>
+
+          <div class="form-group col-lg-3 pl-0 pr-2">
+            <select formControlName="id_categories" name="category" id="category" type="text" class="form-control">
+              <option value=""> Selecione uma Categoria </option>
+              <ng-container *ngFor="let category of categories">
+                <option [value]="category.id"> {{ category.name }} </option>
+              </ng-container>
+            </select>
+          </div>
+
+          <div class="input-group col-lg-3 pl-0 pr-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">R$</div>
+            </div>
+            <input formControlName="promotional_price" type="number" name="value" id="value" class="form-control" id="inlineFormInputGroup" placeholder="Valor Promocional">
+          </div>
         </div>
 
-        <div class="form-group col-lg-6 px-1">
-          <label for="description"> Descricao: </label>
-          <textarea formControlName="description" class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
-        </div>
-      </div>
+        <div class="row mx-0 px-0 justify-content-between align-items-center mt-4">
+          <div class="form-group col-lg-6 px-1">
+            <label for="description"> Especificacoes: </label>
+            <textarea formControlName="specifications" class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+          </div>
 
-      <button
-      [disabled]="productForm.invalid"
-      (click)="finishForm($event)"
-      class="btn btn-primary"> Cadastrar Botao </button>
-    </form>
+          <div class="form-group col-lg-6 px-1">
+            <label for="description"> Descricao: </label>
+            <textarea formControlName="description" class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+
+        <button
+        [disabled]="productForm.invalid"
+        (click)="finishForm($event)"
+        class="btn btn-primary"> Cadastrar Botao </button>
+      </form>
+    </ng-container>
 
   </div>
 </section>
