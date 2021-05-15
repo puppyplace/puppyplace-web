@@ -5,10 +5,13 @@
     <form action="">
 
       <div class="form-group">
-        <input placeholder="Nome" name="name" id="name" type="text" class="form-control">
+        <input placeholder="Nome" [(ngModel)]="categoryName" name="name" id="name" type="text" class="form-control">
       </div>
 
-      <button class="btn btn-primary"> Cadastrar Categoria </button>
+      <button
+      [disabled]="categoryName === ''"
+      (click)="finishForm($event)"
+      class="btn btn-primary"> Cadastrar Categoria </button>
     </form>
 
   </div>

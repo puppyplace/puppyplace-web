@@ -11,6 +11,9 @@ import { ProductsComponent } from './pages/products/products.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { CategoriesManagerComponent } from './pages/categories-manager/categories-manager.component';
 import { CategoryService } from './shared/services/category-service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,11 @@ import { CategoryService } from './shared/services/category-service';
     MenuComponent, ProductsManagerComponent, CategoriesManagerComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
     CategoryService
