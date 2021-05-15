@@ -1,25 +1,52 @@
-import { Product } from "../models/product.interface";
+import { Product } from '../models/product.interface';
 
 export const PRODUCTS_MOCK: Array<Product> = [
   {
-    id: 1,
-    name: 'Racao de cachorro',
-    category: 'Racao',
-    description: 'Uma racao legal',
-    value: 50
+    id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    description: 'Um produto legal',
+    title: 'Produto 1',
+    price: 10,
+    stock: 20,
+    specifications: 'produto bem legal',
+    unit: '',
+    promotional_price: 0,
+    avatar_url: '',
+    id_categories: [
+      '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+    ],
+    product_code: '123123412345',
+    isbn_code: '123123412345'
   },
   {
-    id: 2,
-    name: 'Racao de gato',
-    category: 'Racao',
-    description: 'Uma racao legal',
-    value: 45
+    id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    description: 'Um produto legal',
+    title: 'Produto 2',
+    price: 10,
+    stock: 20,
+    specifications: 'produto bem legal',
+    unit: '',
+    promotional_price: 0,
+    avatar_url: '',
+    id_categories: [
+      '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+    ],
+    product_code: '123123412345',
+    isbn_code: '123123412345'
   },
   {
-    id: 3,
-    name: 'Racao de peixe',
-    category: 'Racao',
-    description: 'Uma racao legal',
-    value: 35
+    id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+    description: 'Um produto legal',
+    title: 'Produto 3',
+    price: 10,
+    stock: 20,
+    specifications: 'produto bem legal',
+    unit: '',
+    promotional_price: 0,
+    avatar_url: '',
+    id_categories: [
+      '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+    ],
+    product_code: '123123412345',
+    isbn_code: '123123412345'
   },
 ];
