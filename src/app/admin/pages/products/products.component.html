@@ -6,7 +6,6 @@
       <table class="table table-striped">
         <thead class="thead-dark">
           <th> Nome </th>
-          <th> Categoria </th>
           <th> Descricao </th>
           <th> Valor </th>
           <th> Acao </th>
@@ -14,10 +13,9 @@
         <tbody>
           <ng-container *ngFor="let product of products">
             <tr>
-              <td> {{ product.name }} </td>
-              <td> {{ product.category }} </td>
+              <td> {{ product.title }} </td>
               <td> {{ product.description }} </td>
-              <td> {{ product.value | currency: 'BRL' }} </td>
+              <td> {{ product.price | currency: 'BRL' }} </td>
               <td> <button (click)="goToProduct(product.id)" class="btn btn-primary"> ver </button> </td>
             </tr>
           </ng-container>

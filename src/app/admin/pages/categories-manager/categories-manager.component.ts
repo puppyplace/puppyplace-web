@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Category } from '../../models/category.interface';
-import { CategoryService } from '../../shared/services/category-service';
+import { CategoryService } from '../../shared/services/category.service';
 
 @Component({
   selector: 'app-categories-manager',
