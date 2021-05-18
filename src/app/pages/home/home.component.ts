@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
 
   @ViewChildren('btnFilter') btnFilter: QueryList<ElementRef>;
 
+  
+
   constructor( ) { }
 
   ngOnInit(): void {
