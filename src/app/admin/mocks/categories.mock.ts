@@ -1,7 +1,7 @@
 import { Category } from "../models/category.interface";
 
 export const CATEGORIES_MOCK: Array<Category> = [
-  { id: 1, name: 'Racao', date: 1618888535983 },
-  { id: 2, name: 'Brinquedo', date: 1618888535983 },
-  { id: 3, name: 'Remedio', date: 1618888535983 }
+  { id: '2e2a56ed-8f2e-41bb-b7d4-eb9900da339d', name: 'Racao' },
+  { id: '2e2a56ed-8f2e-41bb-b7d4-eb9900da339d', name: 'Brinquedo' },
+  { id: '2e2a56ed-8f2e-41bb-b7d4-eb9900da339d', name: 'Remedio' }
 ];

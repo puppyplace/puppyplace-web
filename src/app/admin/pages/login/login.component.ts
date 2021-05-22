@@ -17,6 +17,6 @@ export class LoginComponent implements OnInit {
 
   sendTo(ev: Event): void {
     ev.preventDefault();
-    this.router.navigate(['/admin/dashboard'])
+    this.router.navigate(['admin/dashboard'])
   }
 }

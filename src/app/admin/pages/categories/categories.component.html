@@ -6,14 +6,12 @@
       <table class="table table-striped">
         <thead class="thead-dark">
           <th> Nome </th>
-          <th> Data Criado </th>
           <th> Acao </th>
         </thead>
         <tbody>
           <ng-container *ngFor="let category of categories">
             <tr>
               <td> {{ category.name }} </td>
-              <td> {{ category.date | date: 'dd/mm/yyyy hh:mm' }} </td>
               <td> <button (click)="goToCategory(category.id)" class="btn btn-primary"> ver </button> </td>
             </tr>
           </ng-container>
