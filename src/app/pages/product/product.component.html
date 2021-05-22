@@ -1,33 +1,47 @@
 <app-header></app-header>
 <section class="container px-0">
 
-    <div class="page-section col-md-12 mt-0 px-0 d-flex justify-content-between align-items-top">
+    <section class="page-section col-md-12 mt-0 px-0 d-flex justify-content-between align-items-top">
 
-        <div class="col-md-6 px-0">
-            <div class="product">
+        <div class="product d-flex flex-column col-md-6 px-0">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    
+                    <li class="breadcrumb-item">
+                        <a href="#">Cachorro</a>
+                    </li>
+                    
+                    <li class="breadcrumb-item">
+                        <a href="#">Rações</a>
+                    </li>
+                    <li class="breadcrumb-item active">Ração seca</li>
+                </ol>
+            </nav>
+
+            <div class="selected-product">
                 <img src="assets/images/products/racao.png" alt="produto">
-                
-                <div class="d-flex">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+            </div>
+           
+            <div class="d-flex">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
 
         <div class="product-info justify-content-between col-md-6 px-0 ml-5">
-            <h3> Lorem ipsum dolor sit amet </h3>
+            <h2> Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz </h2>
 
-            <ul class="list-unstyled">
-                <li>- Lorem ipsum dolor sit amet </li>
-                <li>- Lorem ipsum dolor sit amet </li>
-                <li>- Lorem ipsum dolor sit amet </li>
-                <li>- Lorem ipsum dolor sit amet </li>
-                <li>- Lorem ipsum dolor sit amet </li>
+            <ul class="pl-2">
+                <li>Premium Especial </li>
+                <li>Grão médio </li>
+                <li>Sem corante </li>
+                <li>Alta Palatabilidade </li>
+                <li>LorRaças Pequenas, Médias e Grandes </li>
             </ul>
 
-            <div class="options  mx-0 px-0 d-flex align-items-center justify-content-between mt-3 col-md-6">
+            <div class="options mx-0 px-0 d-flex align-items-center justify-content-between mt-3 col-md-6">
                 <button #btnOptions (click)="filter($event.target, $event)" class="btn mx-2 selected">10 kg</button>
                 <button #btnOptions (click)="filter($event.target, $event)" class="btn mx-2">15 kg</button>
                 <button #btnOptions (click)="filter($event.target, $event)" class="btn mx-2">20 kg</button>
@@ -53,7 +67,38 @@
             <button class="btn-buy col-md-10">Comprar</button>
         </div>
 
-    </div>
+    </section>
 
+    <section class="description page-section col-md-12 mt-5 px-0">
+        <h2>Descrição</h2>
+        <p>
+            A Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz é um alimento Premium Especial desenvolvido para cães adultos exigentes de pequeno porte. Os cães são essencialmente carnívoros e digerem muito melhor alimentos de origem animal. Apresenta grãos adequados para animais de pequeno porte, facilitando a apreensão e mastigação. É um produto completo e visa, acima de tudo, proporcionar aos cães o nível ideal de todos os nutrientes que eles necessitam para uma vida longa e saudável.
+        </p>
+    </section>
+
+    <section class="specifications page-section col-md-12 mt-5 px-0">
+        <h2>Especificações</h2>
+
+        <table class="table table-sm">
+            <tbody>
+              <tr>
+                <th scope="row">Indicação</th>
+                <td>Cachorros</td>
+              </tr>
+              <tr>
+                <th scope="row">Raça</th>
+                <td>Raças Pequenas, Raças Médias, Raças Grandes</td>
+              </tr>
+              <tr>
+                <th scope="row">Idade</th>
+                <td>Filhotes</td>
+              </tr>
+              <tr>
+                <th scope="row">Sabor</th>
+                <td>Arroz, Frango</td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
 </section>
 <app-footer></app-footer>

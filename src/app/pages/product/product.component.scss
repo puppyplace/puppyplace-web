@@ -3,39 +3,46 @@
 }
 
 .product {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 576px;
-    height: 451.74px;
     
-    background: var(--primary-color-light-3);
-    border: 1px solid var(--primary-color-light-2);
-    box-sizing: border-box;
-    filter: blur(2px);
-    border-radius: 8px;
+    nav {
+        --bs-breadcrumb-divider: '>';
 
-    img {
-        width: 40%;
-        filter: drop-shadow(0px 11.6496px 9.31967px rgba(0, 0, 0, 0.2)) drop-shadow(0px 15.5328px 31.0656px rgba(0, 0, 0, 0.3));
+        ol {
+            background: transparent;
+        }
     }
 
-    div {
+    .selected-product {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 576px;
+        height: 451.74px;
         
+        background: var(--primary-color-light-3);
+        border: 1px solid var(--primary-color-light-2);
+        box-sizing: border-box;
+        filter: blur(2px);
+        border-radius: 8px;
+    
+        img {
+            width: 40%;
+            filter: drop-shadow(0px 11.6496px 9.31967px rgba(0, 0, 0, 0.2)) drop-shadow(0px 15.5328px 31.0656px rgba(0, 0, 0, 0.3));
+        }
     }
 }
 
 .product-info { 
 
-    h3 {
+    h2 {
         font-family: Montserrat;
         font-weight: bold;
-        font-size: 36px;
         line-height: 44px;
         color: var(--gray-4);
     }
 
     li {
+        list-style-type: '-';
         font-family: Source Sans Pro;
         font-size: 20px;
         line-height: 25px;
@@ -155,4 +162,42 @@
           }
 
     }
+}
+
+.description {
+    h2 {
+        color: var(--gray-3);
+        font-size: 36px;
+        line-height: 60px;
+    }
+
+    p {
+        color: var(--gray-3);
+        font-family: Source Sans Pro;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0.1em;
+    }
+}
+
+.specifications {
+    h2 {
+        color: var(--gray-3);
+        font-size: 36px;
+        line-height: 60px;
+    }
+
+    table {
+        th {
+            font-family: Montserrat;
+            color: var(--gray-3);
+        }
+
+        td {
+            font-family: Source Sans Pro;
+            letter-spacing: 0.1em;
+            color: var(--gray-2);
+        }
+    }
+
 }

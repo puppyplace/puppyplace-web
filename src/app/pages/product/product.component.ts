@@ -10,6 +10,8 @@ export class ProductComponent implements OnInit {
   @ViewChildren('btnOptions') btnOptions: QueryList<ElementRef>;
 
   public quantity: number;
+  public total: number;
+  
   constructor() { }
 
   ngOnInit(): void {
