@@ -2,8 +2,7 @@ export interface Product {
     title: string,
     description: string,
     image: string,
-    quantity?: number,
-    category: string[],
+    categories: string[],
     especifications: Especification[],
     variant: Variant[],
     details: string[]
@@ -13,10 +12,12 @@ export interface Product {
     title: string,
     description: string
   }
-
+  
   interface Variant {
     unit: string,
     price: number,
+    amount: number,
     percent_promotional?: number,
+    price_promotional?: number,
     isbn_code: string
   }

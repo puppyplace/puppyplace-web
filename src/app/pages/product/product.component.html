@@ -6,15 +6,12 @@
         <div class="product d-flex flex-column col-md-6 px-0">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    
-                    <li class="breadcrumb-item">
-                        <a href="#">Cachorro</a>
-                    </li>
-                    
-                    <li class="breadcrumb-item">
-                        <a href="#">Rações</a>
-                    </li>
-                    <li class="breadcrumb-item active">Ração seca</li>
+                    <ng-container *ngFor="let category of product.categories">
+                        <li class="breadcrumb-item">
+                            <a href="#">{{category}}</a>
+                        </li>
+                    </ng-container>
+                
                 </ol>
             </nav>
 
@@ -50,7 +47,7 @@
 
                 <div class="d-flex align-items-center justify-content-around">
                     <a (click)="sub($event.target, $event)">-</a>
-                       <span>{{product.quantity}}</span>
+                       <span>{{quantity}}</span>
                     <a (click)="plus($event.target, $event)">+</a>
                 </div>
             </div>
@@ -60,7 +57,7 @@
                 <span>{{product.variant[variantIndex].price | currency: 'BRL'}}</span>
             </div>
 
-            <p class="total mt-3">{{product.variant[variantIndex].percent_promotional | currency: 'BRL'}}</p>
+            <p class="total mt-3">{{total | currency: 'BRL'}}</p>
 
             <button class="btn-buy col-md-10">Comprar</button>
         </div>
