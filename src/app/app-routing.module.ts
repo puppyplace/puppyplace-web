@@ -10,7 +10,7 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'product', component: ProductComponent },
+      { path: 'product/:id', component: ProductComponent },
       { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) }
     ]
   },

@@ -19,7 +19,7 @@
             </nav>
 
             <div class="selected-product">
-                <img src="assets/images/products/racao.png" alt="produto">
+                <img src={{product.image}} alt="produto">
             </div>
            
             <div class="d-flex">
@@ -31,20 +31,18 @@
         </div>
 
         <div class="product-info justify-content-between col-md-6 px-0 ml-5">
-            <h2> Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz </h2>
+            <h2> {{product.title}} </h2>
 
             <ul class="pl-2">
-                <li>Premium Especial </li>
-                <li>Grão médio </li>
-                <li>Sem corante </li>
-                <li>Alta Palatabilidade </li>
-                <li>LorRaças Pequenas, Médias e Grandes </li>
+                <ng-container *ngFor="let detail of product.details">
+                    <li>{{detail}} </li>
+                </ng-container>
             </ul>
 
             <div class="options mx-0 px-0 d-flex align-items-center justify-content-between mt-3 col-md-6">
-                <button #btnOptions (click)="filter($event.target, $event)" class="btn mx-2 selected">10 kg</button>
-                <button #btnOptions (click)="filter($event.target, $event)" class="btn mx-2">15 kg</button>
-                <button #btnOptions (click)="filter($event.target, $event)" class="btn mx-2">20 kg</button>
+                <ng-container *ngFor="let variant of product.variant; let i = index">
+                    <button #btnOptions (click)="filter($event.target, $event, i)" [ngClass]="{'selected': i === 0}" class="btn mx-2">{{variant.unit}}</button>
+                </ng-container>
             </div>
 
             <div class="quantity d-flex px-0 align-items-center justify-content-between mt-3 col-md-6">
@@ -52,17 +50,17 @@
 
                 <div class="d-flex align-items-center justify-content-around">
                     <a (click)="sub($event.target, $event)">-</a>
-                       <span>{{quantity}}</span>
+                       <span>{{product.quantity}}</span>
                     <a (click)="plus($event.target, $event)">+</a>
                 </div>
             </div>
 
             <div class="discount d-flex px-0 align-items-center justify-content-between mt-3 col-md-6">
-                <button>10% OFF</button>
-                <span>R$ 100,00</span>
+                <button>{{product.variant[variantIndex].percent_promotional}}% OFF</button>
+                <span>{{product.variant[variantIndex].price | currency: 'BRL'}}</span>
             </div>
 
-            <p class="total mt-3">R$ 90,00</p>
+            <p class="total mt-3">{{product.variant[variantIndex].percent_promotional | currency: 'BRL'}}</p>
 
             <button class="btn-buy col-md-10">Comprar</button>
         </div>
@@ -71,9 +69,7 @@
 
     <section class="description page-section col-md-12 mt-5 px-0">
         <h2>Descrição</h2>
-        <p>
-            A Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz é um alimento Premium Especial desenvolvido para cães adultos exigentes de pequeno porte. Os cães são essencialmente carnívoros e digerem muito melhor alimentos de origem animal. Apresenta grãos adequados para animais de pequeno porte, facilitando a apreensão e mastigação. É um produto completo e visa, acima de tudo, proporcionar aos cães o nível ideal de todos os nutrientes que eles necessitam para uma vida longa e saudável.
-        </p>
+        <p>{{product.description}}</p>
     </section>
 
     <section class="specifications page-section col-md-12 mt-5 px-0">
@@ -81,22 +77,12 @@
 
         <table class="table table-sm">
             <tbody>
-              <tr>
-                <th scope="row">Indicação</th>
-                <td>Cachorros</td>
-              </tr>
-              <tr>
-                <th scope="row">Raça</th>
-                <td>Raças Pequenas, Raças Médias, Raças Grandes</td>
-              </tr>
-              <tr>
-                <th scope="row">Idade</th>
-                <td>Filhotes</td>
-              </tr>
-              <tr>
-                <th scope="row">Sabor</th>
-                <td>Arroz, Frango</td>
-              </tr>
+                <ng-container *ngFor="let especification of product.especifications">
+                    <tr>
+                        <th scope="row">{{especification.title}}</th>
+                        <td>{{especification.description}}</td>
+                    </tr>
+                </ng-container>
             </tbody>
           </table>
     </section>
