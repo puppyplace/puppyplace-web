@@ -1,0 +1,203 @@
+.container {
+    margin-top: 10em;
+}
+
+.product {
+    
+    nav {
+        --bs-breadcrumb-divider: '>';
+
+        ol {
+            background: transparent;
+        }
+    }
+
+    .selected-product {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 576px;
+        height: 451.74px;
+        
+        background: var(--primary-color-light-3);
+        border: 1px solid var(--primary-color-light-2);
+        box-sizing: border-box;
+        filter: blur(2px);
+        border-radius: 8px;
+    
+        img {
+            width: 40%;
+            filter: drop-shadow(0px 11.6496px 9.31967px rgba(0, 0, 0, 0.2)) drop-shadow(0px 15.5328px 31.0656px rgba(0, 0, 0, 0.3));
+        }
+    }
+}
+
+.product-info { 
+
+    h2 {
+        font-family: Montserrat;
+        font-weight: bold;
+        line-height: 44px;
+        color: var(--gray-4);
+    }
+
+    li {
+        list-style-type: '-';
+        font-family: Source Sans Pro;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0.1em;
+        color: var(--gray-2);
+    }
+
+    .options button {
+        background: var(--secondary-color-light-2);
+        box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+
+        font-family: Source Sans Pro;
+        letter-spacing: 0.05em;
+        color: var(--light-color);
+       
+        &:hover {
+            background: var(--secondary-color-light-4);
+            color: var(--gray-3);
+          }
+
+        &.selected {
+            background: var(--secondary-color-light-1);
+            box-shadow: 0px 4px 4px var(--transparent-color);
+            
+
+            &:hover {
+                background: var(--secondary-color);
+                color: var(--light-color);
+              }
+        }
+    }
+
+    .quantity {
+        span {
+            font-family: Source Sans Pro;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 0.05em;
+
+            color: var(--gray-3);
+        }
+
+        div {
+            width: 117px;
+            height: 38px;
+            background: var(--primary-color-light-4);;
+            border-radius: 20px;
+
+            a {
+                text-decoration: none;
+                cursor: pointer;
+                font-size: 24px;
+                color: var(--secondary-color-light-2);
+
+                &:hover {
+                    color: var(--secondary-color);
+                }
+
+                &.disable {
+                    color: var(--light-color);
+                }
+            }
+        }
+    }
+
+    .discount {
+
+        button {
+            border: 0;
+            background: var(--complementary-color-light-1);
+            box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            color: var(--light-color);
+
+            font-family: Source Sans Pro;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 23px;
+            letter-spacing: 0.05em;
+            color: var(--primary-color-light-4);;
+
+        }
+
+        span {
+            font-family: Source Sans Pro;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 0.1em;
+            text-decoration-line: line-through;
+            color: var(--gray-2);
+        }
+    }
+
+    .total {
+        font-family: Source Sans Pro;
+        font-weight: bold;
+        font-size: 42px;
+        letter-spacing: 0.1em;
+        color: var(--gray-4);
+    }
+
+    .btn-buy {
+        border: 0;
+        height: 50px;
+        background: var(--complementary-color);
+        box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 9px;
+
+        font-size: 29.5px;
+        line-height: 37px;
+        letter-spacing: 0.05em;
+        color: var(--light-color);
+
+        &:hover {
+            background: var(--complementary-color-dark-1);
+          }
+
+    }
+}
+
+.description {
+    h2 {
+        color: var(--gray-3);
+        font-size: 36px;
+        line-height: 60px;
+    }
+
+    p {
+        color: var(--gray-3);
+        font-family: Source Sans Pro;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 0.1em;
+    }
+}
+
+.specifications {
+    h2 {
+        color: var(--gray-3);
+        font-size: 36px;
+        line-height: 60px;
+    }
+
+    table {
+        th {
+            font-family: Montserrat;
+            color: var(--gray-3);
+        }
+
+        td {
+            font-family: Source Sans Pro;
+            letter-spacing: 0.1em;
+            color: var(--gray-2);
+        }
+    }
+
+}

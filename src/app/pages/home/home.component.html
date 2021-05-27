@@ -1,17 +1,16 @@
 <app-header></app-header>
 <section class="container px-0">
+  <ng-container *ngFor="let paw of paws; let i = index">
+    <app-paw
+        [size]= paw.size
+        [color]=paw.color
+        [angle]=paw.angle
+        [position]=paw.position>
+      </app-paw>
+  </ng-container>
 
   <!-- slider principal -->
   <div class="page-section">
-
-    <ng-container *ngFor="let paw of paws; let i = index">
-      <app-paw
-          [size]= paw.size
-          [color]=paw.color
-          [angle]=paw.angle
-          [position]=paw.position>
-        </app-paw>
-    </ng-container>
 
     <ngb-carousel #slider [showNavigationIndicators]="true" [wrap]="true" [interval]="0" [animation]="true">
       <ng-container *ngFor="let slide of carouselData; let i = index">
@@ -37,7 +36,7 @@
   <!-- carrosel de produtos -->
   <div class="page-section col-md-12 mx-0 px-0 d-flex justify-content-start align-items-center product-list">
     <div class="col-4 px-0">
-      <h3> Mais Vendidos </h3>
+      <h2> Mais Vendidos </h2>
     </div>
     <div class="col-7 col-md-12 mx-0 px-0 d-flex justify-content-start align-items-center">
       <a #btnFilter href="#" (click)="filter($event.target, $event)" class="btn-filter btn mx-2 px-4 selected"> Cachorros </a>
