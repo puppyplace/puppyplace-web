@@ -26,7 +26,7 @@
               <p class="font-weight-bold title"> <span> {{ product.title }} </span> </p>
               <p class="description"> {{ product.description }} </p>
               <p class="font-weight-bold price"> {{ product.amount | currency: 'BRL' }} </p>
-              <button class="btn col-md-12 product-button"> Adicionar ao carrinho </button>
+              <a [routerLink]="['/products/1']" class="btn col-md-12 product-button"> Adicionar ao carrinho </a>
             </div>
           </div>
         </ng-container>
