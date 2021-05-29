@@ -83,7 +83,9 @@
 
       <div class="d-flex col-md-1 justify-content-between px-0">
         <img class="avatar" src="assets/images/header/avatar.png" alt="avatar" />
-        <img class="shop-cart" src="assets/images/header/ship-cart.svg" alt="cart" />
+        <a [routerLink]="['/cart']">
+          <img class="shop-cart" src="assets/images/header/ship-cart.svg" alt="cart" />
+        </a>
       </div>
     </div>
 

@@ -1,0 +1,61 @@
+<app-header></app-header>
+<section class="container px-0">
+
+    <div class="page-section container px-0 page-section position-relative">
+        
+        <div class="mt-5 pt-5">
+            <h1 class="mt-4">
+                <img src="assets/images/header/ship-cart.svg" alt="cart" />
+                Meu Carrinho
+            </h1>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Produto </th>
+                        <th> Descrição </th>
+                        <th> Qtd </th>
+                        <th> Preço </th>
+                        <th> Subtotal </th>
+                        <th> Ação </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <ng-container *ngFor="let product of products">
+                        <tr class="col-md-12">
+                            <td class=""> 
+                                <img [src]="product.image" class="product-img" alt="">
+                            </td>
+                            <td class=""> {{ product.title }} </td>
+                            <td class="d-flex justify-content-between align-content-center"> 
+                                <a (click)="updateQtd(product, true, $event)" href=""> ▲ </a>
+                                <span> {{ product.qtd }} </span>
+                                <a (click)="updateQtd(product, false, $event)" href=""> ▼ </a>
+                            </td>
+                            <td class=""> {{ product.amount | currency: 'BRL' }} </td>
+                            <td class=""> {{ product.amount | currency: 'BRL' }} </td>
+                            <td class=""> <a 
+                                (click)="removeProduct(product, $event)"
+                                class="text-danger" href="#"> Remover </a> </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="col-md-12 d-flex justify-content-between px-0 mt-4">
+            <div class="col-md-6 d-flex justify-content-start px-0">
+                <h3> Valor Total: {{ totalValue() | currency:'BRL' }} </h3>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end px-0">
+                <a (click)="$event.preventDefault();" class="btn btn-primary" href=""> Finalizar Compra </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<app-footer></app-footer>

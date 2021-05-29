@@ -38,54 +38,72 @@ export const CAROUSEL_DATA_PRODUCTS_MOCK: Array<ProductData> = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 20
+    amount: 20,
+    qtd: 1,
+    id: 1
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 30
+    amount: 30,
+    qtd: 1,
+    id: 2
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 40
+    amount: 40,
+    qtd: 1,
+    id: 3
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    amount: 50,
+    qtd: 1,
+    id: 4
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    amount: 50,
+    qtd: 1,
+    id: 5
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    amount: 50,
+    qtd: 1,
+    id: 6
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    amount: 50,
+    qtd: 1,
+    id: 7
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    amount: 50,
+    qtd: 1,
+    id: 8
   },
   {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     image: 'assets/images/products/racao.png',
     title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    amount: 50,
+    qtd: 1,
+    id: 9
   }
 ];
