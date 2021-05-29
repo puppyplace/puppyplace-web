@@ -4,10 +4,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsRoutingModule } from './products-routing.module';
+import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
-    ProductListComponent
+    ProductListComponent,
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

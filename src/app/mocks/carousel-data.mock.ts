@@ -35,57 +35,75 @@ export const CAROUSEL_DATA_MOCK: Array<ProductData> = [
 
 export const CAROUSEL_DATA_PRODUCTS_MOCK: Array<ProductData> = [
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 20
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 1
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 30
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 2
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 40
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 3
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 4
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 5
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 6
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 7
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 8
   },
   {
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Ração Golden',
     image: 'assets/images/products/racao.png',
-    title: 'Lorem ipsum dolor sit amet',
-    amount: 50
+    title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
+    amount: 90,
+    qtd: 1,
+    id: 9
   }
 ];

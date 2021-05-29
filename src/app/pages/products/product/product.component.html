@@ -59,7 +59,7 @@
 
             <p class="total mt-3">{{total | currency: 'BRL'}}</p>
 
-            <button class="btn-buy col-md-10">Comprar</button>
+            <button (click)="addItemToCart()" class="btn-buy col-md-10">Comprar</button>
         </div>
 
     </section>
@@ -85,3 +85,19 @@
     </section>
 </section>
 <app-footer></app-footer>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"> Produto </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p class="text-center"> O produto foi adicionado ao carrinho! </p>
+    </div>
+    <div class="modal-footer modal-footer justify-content-between">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()"> Continuar Comprando </button>
+        <a [routerLink]="['/products/cart']" (click)="modal.close()"> Carrinho de Compras </a>
+    </div>
+</ng-template>

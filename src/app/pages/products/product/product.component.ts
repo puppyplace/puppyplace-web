@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
 import { Product } from 'src/app/models/product.interface';
 import { PRODUCT_DATA } from 'src/app/mocks/product-data.mock';
+import { CartService } from 'src/app/shared/services/cart.service';
+import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product',
@@ -10,19 +13,28 @@ import { PRODUCT_DATA } from 'src/app/mocks/product-data.mock';
 export class ProductComponent implements OnInit {
 
   @ViewChildren('btnOptions') btnOptions: QueryList<ElementRef>;
+  @ViewChild('content') modal: ElementRef;
 
   public total: number;
   public quantity: number;
   public product: Product;
   public variantIndex: number = 0;
-  
-  constructor() { }
+  public productId: number;
+
+  constructor(
+    private cartService: CartService,
+    private activeRouter: ActivatedRoute,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
     this.product = PRODUCT_DATA;
     this.quantity = 1;
     this.updateTotal();
 
+    this.activeRouter.params.subscribe(res => {
+      this.productId = (res.id as number);
+    })
   }
 
   public plus(el: HTMLElement, e: Event) {
@@ -65,4 +77,15 @@ export class ProductComponent implements OnInit {
     el.classList.add('selected');
   }
 
+  public addItemToCart() {
+    const price = this.product.variant[this.variantIndex].price_promotional;
+    
+    this.cartService.addItem({ ...this.product, qtd: this.quantity, 
+      id: this.productId, amount: price, total: this.total});
+    this.open(this.modal);
+  }
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((_) => {});
+  }
 }
