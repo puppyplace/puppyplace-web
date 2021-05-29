@@ -8,6 +8,7 @@ import { ProductListManagerComponent } from './components/product-list-manager/p
 import { RouterModule } from '@angular/router';
 import { LeadService } from './services/lead.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductListManagerComponent
   ],
   providers: [
-      LeadService
+    LeadService,
+    CartService
   ],
   exports: [
     HeaderComponent,

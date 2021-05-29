@@ -9,50 +9,59 @@
                 Meu Carrinho
             </h1>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th> Produto </th>
-                        <th> Descrição </th>
-                        <th> Qtd </th>
-                        <th> Preço </th>
-                        <th> Subtotal </th>
-                        <th> Ação </th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <ng-container *ngFor="let product of products">
-                        <tr class="col-md-12">
-                            <td class=""> 
-                                <img [src]="product.image" class="product-img" alt="">
-                            </td>
-                            <td class=""> {{ product.title }} </td>
-                            <td class="d-flex justify-content-between align-content-center"> 
-                                <a (click)="updateQtd(product, true, $event)" href=""> ▲ </a>
-                                <span> {{ product.qtd }} </span>
-                                <a (click)="updateQtd(product, false, $event)" href=""> ▼ </a>
-                            </td>
-                            <td class=""> {{ product.amount | currency: 'BRL' }} </td>
-                            <td class=""> {{ product.amount | currency: 'BRL' }} </td>
-                            <td class=""> <a 
-                                (click)="removeProduct(product, $event)"
-                                class="text-danger" href="#"> Remover </a> </td>
+            <ng-container *ngIf="products.length > 0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Produto </th>
+                            <th> Descrição </th>
+                            <th> Qtd </th>
+                            <th> Preço </th>
+                            <th> Subtotal </th>
+                            <th> Ação </th>
                         </tr>
-                    </ng-container>
-                </tbody>
+                    </thead>
+                
+                    <tbody>
+                        <ng-container *ngFor="let product of products">
+                            <tr class="col-md-12">
+                                <td class="">
+                                    <img [src]="product.image" class="product-img" alt="">
+                                </td>
+                                <td class=""> {{ product.title }} </td>
+                                <td class="d-flex justify-content-between align-content-center quantity">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        <a (click)="updateQtd(product, false, $event)">-</a>
+                                        <span>{{product.qtd}}</span>
+                                        <a (click)="updateQtd(product, true, $event)">+</a>
+                                    </div>
+                                </td>
+                                <td class=""> {{ product.amount | currency: 'BRL' }} </td>
+                                <td class=""> {{ product.total | currency: 'BRL' }} </td>
+                                <td class=""> <a (click)="removeProduct(product, $event)" class="text-danger" href="#"> Remover </a>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                
+                </table>
 
-            </table>
+                <div class="col-md-12 d-flex justify-content-between px-0 mt-4">
+                    <div class="col-md-6 d-flex justify-content-start px-0">
+                        <h3> Valor Total: {{ totalValue() | currency:'BRL' }} </h3>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end px-0">
+                        <a (click)="$event.preventDefault();" class="btn btn-primary" href=""> Finalizar Compra </a>
+                    </div>
+                </div>
+            </ng-container>
+            
+            <ng-container *ngIf="products.length === 0">
+                <div class="alert alert-info">
+                    <p class="text-center"> O carrinho esta vazio! </p>
+                </div>
+            </ng-container>
 
-        </div>
-
-        <div class="col-md-12 d-flex justify-content-between px-0 mt-4">
-            <div class="col-md-6 d-flex justify-content-start px-0">
-                <h3> Valor Total: {{ totalValue() | currency:'BRL' }} </h3>
-            </div>
-            <div class="col-md-6 d-flex justify-content-end px-0">
-                <a (click)="$event.preventDefault();" class="btn btn-primary" href=""> Finalizar Compra </a>
-            </div>
         </div>
 
     </div>

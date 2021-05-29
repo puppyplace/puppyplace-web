@@ -17,7 +17,7 @@
     <div class="col-lg-9 px-0">
 
       <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <ng-container *ngFor="let product of products">
+        <ng-container *ngFor="let product of products; let i = index">
           <div class="box-product py-3 px-4">
             <div class="box-image-holder">
               <img class="w-50 offset-4" [src]="product.image">
@@ -26,7 +26,7 @@
               <p class="font-weight-bold title"> <span> {{ product.title }} </span> </p>
               <p class="description"> {{ product.description }} </p>
               <p class="font-weight-bold price"> {{ product.amount | currency: 'BRL' }} </p>
-              <a [routerLink]="['/products/1']" class="btn col-md-12 product-button"> Adicionar ao carrinho </a>
+              <a [routerLink]="['/products/' + i]" class="btn col-md-12 product-button"> Ver produto </a>
             </div>
           </div>
         </ng-container>
