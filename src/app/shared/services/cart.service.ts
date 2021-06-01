@@ -72,9 +72,7 @@ export class CartService {
     try {
       const storage = this.getStorage();
       const index = storage.findIndex(arr => Number(arr.id) === Number(product.id));
-      storage[index].amount = product.amount;
-
-      console.log(storage[index]);
+      storage[index] = product;
 
       this.updateStorage(storage);
     } catch (err) {
