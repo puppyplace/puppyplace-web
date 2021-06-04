@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { LeadService } from './services/lead.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './services/cart.service';
+import { CustomerService } from './services/customer.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartService } from './services/cart.service';
   ],
   providers: [
     LeadService,
-    CartService
+    CartService,
+    CustomerService
   ],
   exports: [
     HeaderComponent,
