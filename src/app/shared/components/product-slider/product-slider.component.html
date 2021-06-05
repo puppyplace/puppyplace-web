@@ -7,7 +7,7 @@
       <ng-container *ngFor="let product of carouselProductsData">
         <div #box class="box-product py-3 px-4">
           <div class="box-image-holder">
-            <img class="w-50 offset-4" [src]="product.image">
+            <img class="w-50 offset-4" [src]="product.avatar_url">
           </div>
           <div class="mt-3">
             <p class="font-weight-bold title"> <span> {{ product.title }} </span> </p>
