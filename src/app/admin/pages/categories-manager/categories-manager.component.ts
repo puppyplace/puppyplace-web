@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Category } from '../../models/category.interface';
-import { CategoryService } from '../../shared/services/category.service';
+import { CategoryManagerService } from '../../shared/services/category-manager.service';
 
 @Component({
   selector: 'app-categories-manager',
@@ -17,7 +17,7 @@ export class CategoriesManagerComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private categoryService: CategoryService,
+    private categoryService: CategoryManagerService,
     private router: Router
   ) { }
 

@@ -3,7 +3,7 @@ import { Product } from "../models/product.interface";
 export const PRODUCT_DATA: Product = {
     title: 'Ração Golden Fórmula Cães Mini Bits Adultos Pequeno Porte Salmão e Arroz',
     description: 'A Ração Golden Fórmula Mini Bits Cães Adultos Pequeno Porte Frango e Arroz agora é oferecida em uma nova composição e em uma nova embalagem com sistema de fechamento facilitado e que mantem a qualidade da ração. Sendo um alimento Premium Especial promove a manutenção da saúde repondo os vitaminas conforme a necessidade do animal, e por ser tão completa, alimenta sem precisar de suplementação extra! Rica em fibras naturais, a Golden Fórmula Mini Bits oferece alta digestibilidade e protege a saúde gastrointestinal do seu felino. Aprovada até pelos pets mais exigentes o alimento possui sabor e aroma com alta palatabilidade, que tornam as refeições deliciosas. Também beneficia a saúde oral, evitando a formação de tártaros, e também reduz o odor das fezes, graças à seleção de ingredientes completos e nutritivos. Sendo a ração completa para o seu cãozinho.',
-    image: 'assets/images/products/racao.png',
+    avatar_url: 'assets/images/products/racao.png',
     categories: [
         'Cachorro',
         'Rações',

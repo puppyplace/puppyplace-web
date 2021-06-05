@@ -1,9 +1,9 @@
 export interface ProductData {
   title: string,
   description: string,
-  image: string,
-  amount?: number,
+  avatar_url: string,
+  price?: number,
   total?: number,
   qtd?: number,
-  id?: number
+  id?: string
 }

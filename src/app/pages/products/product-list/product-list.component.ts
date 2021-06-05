@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { PAW_DATA } from 'src/app/mocks/paw-data.mock';
-import { Paw } from 'src/app/models/paw.interface';
 import { ProductData } from 'src/app/models/carousel-data.interface';
-import { CAROUSEL_DATA_PRODUCTS_MOCK } from 'src/app/mocks/carousel-data.mock';
+import { Paw } from 'src/app/models/paw.interface';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,11 +14,20 @@ export class ProductListComponent implements OnInit {
   public paws: Array<Paw>;
   public products: Array<ProductData>;
 
-  constructor() { }
+  constructor(
+    private service: ProductService
+  ) { }
 
   ngOnInit(): void {
     this.paws = PAW_DATA;
-    this.products = CAROUSEL_DATA_PRODUCTS_MOCK
+    this.products = null;
+
+    this.getProducts();
   }
 
+  getProducts() {
+    this.service.getAll()
+      .pipe(map((result) => (result as any).content))
+      .subscribe(res => this.products = res)
+  }
 }

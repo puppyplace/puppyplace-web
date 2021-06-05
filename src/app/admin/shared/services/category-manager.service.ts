@@ -6,7 +6,7 @@ import { Category } from '../../models/category.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class CategoryManagerService {
   private url = `${environment.BASE_BACKEND_URL}/category`;
 
   constructor(

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../shared/services/product.service';
+import { ProductManagerService } from '../../shared/services/product-manager.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   public categoryCounter: number;
 
   constructor(
-    private productService: ProductService
+    private productService: ProductManagerService
   ) { }
 
   ngOnInit(): void {

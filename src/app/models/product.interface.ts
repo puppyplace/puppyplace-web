@@ -1,7 +1,7 @@
 export interface Product {
     title: string,
     description: string,
-    image: string,
+    avatar_url: string,
     categories: string[],
     especifications: Especification[],
     variant: Variant[],

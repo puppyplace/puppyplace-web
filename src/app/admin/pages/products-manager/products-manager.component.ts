@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { CATEGORIES_MOCK } from '../../mocks/categories.mock';
 import { Category } from '../../models/category.interface';
 import { Product } from '../../models/product.interface';
-import { ProductService } from '../../shared/services/product.service';
+import { ProductManagerService } from '../../shared/services/product-manager.service';
 
 @Component({
   selector: 'app-products-manager',
@@ -23,7 +23,7 @@ export class ProductsManagerComponent implements OnInit {
 
 
   constructor(
-    private productService: ProductService,
+    private productService: ProductManagerService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
