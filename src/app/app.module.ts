@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { CustomersComponent } from './pages/customers/customers.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CustomersComponent
+    CustomersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

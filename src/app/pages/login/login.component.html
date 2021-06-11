@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="container px-0 position-relative mt-5 pt-5">
+
+  <div id="login-stages" class="d-flex justify-content-between align-items-center">
+    <div class="col-md-6">
+      <div id="login-form" class="col-8 offset-2 mt-4">
+        <h3> Login </h3>
+
+        <form class="mt-4" action="">
+
+          <div
+          [ngClass]="{'login-alert-show': showAlert}"
+          class="alert-danger mt-3 p-2 mb-2 login-alert">
+            <p class="text-danger text-center p-0 m-0"> Usuario nao existe! </p>
+          </div>
+
+          <div class="form-group">
+            <label for="username"> Usuario: </label>
+            <input name="username" id="username" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password"> Senha: </label>
+            <input name="password" id="password" type="text" type="password" class="form-control">
+          </div>
+
+          <button
+          (click)="login($event)"
+          class="btn btn-success col-md-8 px-0 offset-2 font-weight-bold"> Fazer Login </button>
+          <p class="text-center mb-0 mt-2">
+            <a [routerLink]="['/forgot-password']" href=""> Esqueci a senha </a>
+          </p>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="col-8 offset-2 mt-4">
+        <p class="text-center"> Não tem cadastro? </p>
+        <p class="text-center"> <a [routerLink]="['/sign-up']" href=""> Clique aqui e faça o seu cadastro! </a> </p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<app-footer></app-footer>
