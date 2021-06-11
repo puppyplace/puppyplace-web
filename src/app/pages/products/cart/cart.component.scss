@@ -29,3 +29,37 @@
         }
     }
 }
+
+#cart-resume {
+  overflow: auto;
+  height: auto;
+
+  #cart-resume-bg {
+    width: 100%;
+    height: auto;
+  }
+
+  .cart-resume-info {
+    position: absolute;
+    top: 15%;
+    p,
+    h3 {
+      color: var(--light-color);
+      font-weight: bold;
+    }
+
+    button {
+      background: var(--complementary-color-dark-1) !important;
+    }
+  }
+}
+
+.delivery-data p {
+  font-size: .89em;
+}
+
+div.table-container {
+  height: 690px;
+  overflow: auto;
+}
+
