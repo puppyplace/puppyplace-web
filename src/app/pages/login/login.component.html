@@ -28,7 +28,7 @@
           (click)="login($event)"
           class="btn btn-success col-md-8 px-0 offset-2 font-weight-bold"> Fazer Login </button>
           <p class="text-center mb-0 mt-2">
-            <a href=""> Esqueci a senha </a>
+            <a [routerLink]="['/forgot-password']" href=""> Esqueci a senha </a>
           </p>
         </form>
 

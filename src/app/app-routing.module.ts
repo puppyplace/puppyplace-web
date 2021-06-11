@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
       { path: 'sign-up', component: CustomersComponent },
+      { path: 'forgot-password', loadChildren: () => import('./pages/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) }
     ]
   },
   {
