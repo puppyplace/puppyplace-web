@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-recover',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class RecoverComponent implements OnInit {
   public showAlert: boolean;
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.showAlert = false;

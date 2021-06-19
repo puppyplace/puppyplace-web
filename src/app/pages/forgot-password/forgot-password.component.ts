@@ -7,12 +7,19 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
+  public showAlert: boolean;
 
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.showAlert = false;
+  }
+
+  recover(ev: Event) {
+    ev.preventDefault();
+    this.showAlert = true;
   }
 
 }
