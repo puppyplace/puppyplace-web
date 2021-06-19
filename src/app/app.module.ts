@@ -10,10 +10,12 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomersComponent } from './pages/customers/customers.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { CustomersComponent } from './pages/customers/customers.component';
-import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
+import { AuthService } from './shared/services/auth.service';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import { LoginComponent } from './pages/login/login.component';
     AngularFirestoreModule,
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
