@@ -23,7 +23,8 @@ import { AuthService } from './shared/services/auth.service';
     AppComponent,
     HomeComponent,
     CustomersComponent,
-    LoginComponent
+    SignUpComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
