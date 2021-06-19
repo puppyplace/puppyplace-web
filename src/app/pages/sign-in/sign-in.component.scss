@@ -1,0 +1,22 @@
+form button {
+  background: var(--complementary-color) !important;
+}
+
+.login-alert {
+  display: none;
+  &.login-alert-show {
+    display: block !important;
+  }
+}
+
+#login-stages .col-md-6:first-child {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: -5%;
+    height: 50%;
+    border-right: solid 1px var(--gray-1);
+  }
+}
