@@ -10,11 +10,13 @@ import { CartService } from 'src/app/shared/services/cart.service';
 export class CheckoutComponent implements OnInit {
 
   public products: Array<ProductData>;
+  public deliveryValue: number;
 
   constructor(
     private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.deliveryValue = 10;
     this.products = this.cartService.getItems() || [];
   }
 
@@ -39,7 +41,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   totalValue() {
-    return this.products.reduce((curr, { total }) => curr + total, 0);
+    return this.products.reduce((curr, { total }) => curr + total, 0) + this.deliveryValue;
   }
 
 }

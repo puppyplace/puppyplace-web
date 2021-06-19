@@ -15,6 +15,9 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   public products: Array<ProductData>;
 
+  public cepInput: string;
+  public deliveryInput: string;
+
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
@@ -27,6 +30,9 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.cepInput = '';
+    this.deliveryInput = '';
+
     this.products = this.cartService.getItems() || [];
   }
 
@@ -61,5 +67,22 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   totalValue() {
     return this.products.reduce((curr, { total }) => curr + total, 0);
+  }
+
+  checkCartIsValid(): boolean {
+    let flag = true;
+    
+    if (this.products.length > 0
+      && this.cepInput !== ''
+      && this.deliveryInput !== '') {
+        flag = false;
+      }
+
+    return flag;
+  }
+
+  sendToCheckout(ev: Event) {
+    ev.preventDefault();
+    this.router.navigate(['/products/checkout']);
   }
 }

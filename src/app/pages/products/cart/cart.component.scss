@@ -63,3 +63,7 @@ div.table-container {
   overflow: auto;
 }
 
+p label,
+p input[type="radio"] {
+  cursor: pointer;
+}

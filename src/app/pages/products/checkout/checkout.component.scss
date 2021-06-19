@@ -1,0 +1,35 @@
+.cart-item {
+    background: var(--primary-color-light-2);
+}
+
+.product-img {
+    width: 80px;
+}
+
+.quantity {
+    div {
+        width: 117px;
+        height: 38px;
+        background: var(--primary-color-light-4);;
+        border-radius: 20px;
+
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--secondary-color-light-2);
+
+            &:hover {
+                color: var(--secondary-color);
+            }
+
+            &.disable {
+                color: var(--light-color);
+            }
+        }
+    }
+}
+
+.delivery-data p {
+  font-size: .89em;
+}
