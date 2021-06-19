@@ -57,6 +57,19 @@ export class AuthService {
       })
   }
 
+    // Auth logic to run auth providers
+  AuthLogin(provider) {
+    return this.afAuth.signInWithPopup(provider)
+    .then((result) => {
+       this.ngZone.run(() => {
+          this.router.navigate(['dashboard']);
+        })
+      this.SetUserData(result.user);
+    }).catch((error) => {
+      window.alert(error)
+    })
+  }
+
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.currentUser.then((user) => {
