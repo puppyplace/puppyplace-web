@@ -82,9 +82,13 @@
       </div>
 
       <div class="d-flex col-md-1 justify-content-between px-0">
-        <a class="position-relative" [routerLink]="['/login']">
+        <a class="position-relative" (click)="userRedirect()">
           <img class="avatar" src="assets/images/header/avatar.png" alt="avatar" />
         </a>
+        
+       
+        <a class="position-relative" *ngIf="isLoggedIn()" (click)="signOut()">Sair</a>
+
         <a class="position-relative" [routerLink]="['/products/cart']">
           <img class="shop-cart" src="assets/images/header/ship-cart.svg" alt="cart" />
         </a>
@@ -96,3 +100,16 @@
     </div>
   </div>
 </header>
+<!-- <ng-template #content let-modal>
+  <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+</ng-template> -->
