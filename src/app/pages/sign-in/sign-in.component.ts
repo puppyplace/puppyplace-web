@@ -13,4 +13,8 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public signin(e: Event, user: string, password: string) {
+    e.preventDefault();
+    this.authService.SignIn(user, password);
+  }
 }
