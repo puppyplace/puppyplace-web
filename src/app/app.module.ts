@@ -27,10 +27,10 @@ import { AuthService } from './shared/services/auth.service';
     VerifyEmailComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    SharedModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
