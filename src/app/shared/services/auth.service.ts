@@ -36,7 +36,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -50,6 +50,7 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
+        console.log(`>>>> ${result}`)
         this.SendVerificationMail();
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -62,7 +63,7 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
