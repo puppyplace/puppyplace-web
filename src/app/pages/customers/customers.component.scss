@@ -1,29 +1,79 @@
-form {
-    input {
-    height: 45px;
-    color: var(--gray-3);
-    background: var(--secondary-color-light-4);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.container {
+  margin-top: 9rem;
+ 
+  form {
+      input {
+      height: 45px;
+      color: var(--gray-3);
+      background: var(--light-color);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+  
+      &:focus {
+        border: 1px solid var(--secondary-color-light-2);
+      }
+    }
+  
+    button {
+      color: var(--light-color);
+      background: var(--complementary-color);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 9px;
+  
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+  
+      &:hover {
+        background: var(--complementary-color-dark-1);
+      }
 
-    font-size: 1.05rem;
-    letter-spacing: 0.05em;
+      &.remove {
+        background: #c51e1c;
 
-    &:focus {
-      border: 1px solid var(--secondary-color-light-2);
+        &:hover {
+          background: #b11b19;
+        }
+      }
     }
   }
 
-  button {
-    color: var(--light-color);
-    background: var(--complementary-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  .dropdown-divider {
+    border-color: var(--gray-1);
+  }
+
+  .card-address {
+    background: var(--light-color);
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2), 0px 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 9px;
 
-    font-size: 1.05rem;
-    letter-spacing: 0.05em;
+    .address-info {
+      h4 {
+        color: var(--gray-3);
+        letter-spacing: 0.05em;
+        text-shadow: 0px 8.05px 11px rgba(0, 0, 0, 0.2);
+      }
+
+      span {
+        color: var(--gray-2);
+        text-shadow: 0px 8.05px 11px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .make-main {
+      text-decoration: none;
+      color: var(--gray-3);
+      letter-spacing: 0.05em;
+      text-shadow: 0px 8.05px 11px rgba(0, 0, 0, 0.2);
+
+      &.is-main {
+        font-weight: bold;
+      }
+    }
 
     &:hover {
-      background: var(--complementary-color-dark-1);
+      transform: translate(2%);
     }
   }
 }
