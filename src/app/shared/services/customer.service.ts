@@ -15,4 +15,12 @@ export class CustomerService {
   public create(customer: Customer) {
       return this.api.post(this.url, customer);
   }
+
+  public get(id: string) {
+    return this.api.get(`${this.url}/${id}`);
+  }
+
+  public findByEmail(email: string) {
+    return this.api.get(`${this.url}/email/${email}`);
+  }
 }

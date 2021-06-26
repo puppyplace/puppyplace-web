@@ -5,7 +5,7 @@ export interface Customer {
     name: string;
     document: string;
     email: string;
-    address?: Address[];
+    addresses?: Address[];
     cellphone?: string;
     birthdate: Date;
     password: string;

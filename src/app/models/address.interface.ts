@@ -6,5 +6,5 @@ export interface Address {
     city: boolean;
     district: string;
     zipcode: string;
-    isMain: boolean;
+    is_main: boolean;
 }
