@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
-  selector: 'app-recover',
-  templateUrl: './recover.component.html',
-  styleUrls: ['./recover.component.scss']
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
 })
-export class RecoverComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit {
   public showAlert: boolean;
 
   constructor(
