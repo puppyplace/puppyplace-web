@@ -37,7 +37,9 @@
                     </div>
                 </div>
 
-                <button class="btn col-md-3"> Salvar </button>
+                <button 
+                    (click)="submitCustomer($event)"
+                class="btn col-md-3"> Salvar </button>
             </form>
         </ng-container>
 
@@ -87,7 +89,7 @@
 
                 <ng-container *ngFor="let address of customer?.addresses">
 
-                    <div class="card-address d-flex justify-content-between align-items-center my-2 p-3">
+                    <div class="address-card d-flex justify-content-between align-items-center my-2 p-3">
                         <div class="address-info d-flex flex-column">
                             <h4>{{address.street}}</h4>
                             <span>{{address.city}}, {{address.state}} - {{address.zipcode}}</span>
