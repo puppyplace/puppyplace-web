@@ -3,7 +3,8 @@ import { Address } from './address.interface';
 
 export interface Customer {
     id: string;
-    name: string;
+    first_name: string;
+    last_name: string;
     document: string;
     email: string;
     addresses?: Address[];
