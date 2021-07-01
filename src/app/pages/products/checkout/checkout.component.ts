@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductData } from 'src/app/models/carousel-data.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { CheckoutService } from 'src/app/shared/services/checkout.service';
+import { Checkout, ProductCheckout} from './checkout'
 
 @Component({
   selector: 'app-checkout',
@@ -9,15 +11,33 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  public products: Array<ProductData>;
-  public deliveryValue: number;
-
+  products: Array<ProductData>;
+  deliveryValue: number;
+  checkout: Checkout;
+    
   constructor(
-    private cartService: CartService) { }
+    private cartService: CartService, private checkoutService: CheckoutService) { }
 
   ngOnInit(): void {
     this.deliveryValue = 10;
     this.products = this.cartService.getItems() || [];
+  }
+
+  finishOrder(ev: Event){
+    ev.preventDefault();
+    this.convertToOrder();
+    console.log(this.checkout);
+    this.checkoutService.create(this.checkout);
+    console.log('enviado backend');
+  }
+
+  convertToOrder(){
+      this.checkout = new Checkout();
+   //   this.checkout.customerId = 'pegar ID do Cliente';
+   //   this.checkout.addressId = 'endereco selecionado';
+      this.checkout.productOrders = this.products.map(p=>{
+        return new ProductCheckout(String(p.id), p.qtd, p.amount, p.total);
+      });
   }
 
   updateQtd(product: ProductData, raise: boolean, ev: Event) {
