@@ -5,8 +5,6 @@ import { CheckoutService } from 'src/app/shared/services/checkout.service';
 import { Checkout, ProductCheckout} from './checkout';
 import { Address } from 'src/app/models/address.interface';
 import { Customer } from 'src/app/models/customer.interface';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { CustomerService } from 'src/app/shared/services/customer.service';
 
 @Component({
   selector: 'app-checkout',
@@ -18,27 +16,20 @@ export class CheckoutComponent implements OnInit {
   products: Array<ProductData>;
   deliveryValue: number;
   checkout: Checkout;
-  public customer: Customer;
-  selectedAddress : Address;
+  customer: Customer;
+  selectedAddress: Address;
+  addressFull: string;
     
   constructor(
     private cartService: CartService, 
-    private checkoutService: CheckoutService,
-    private customerService: CustomerService,
-    private authService: AuthService) { }
+    private checkoutService: CheckoutService) { }
 
   ngOnInit(): void {
     this.deliveryValue = 10;
-    const userLogged =  this.authService.GetUser();
-    this.customerService
-        .findByEmail(userLogged.email)
-        .subscribe(result => {
-          this.customer = result as Customer;
-          console.log('init', this.customer);
-    }, error => {
-      console.log('error', error)
-    })
     this.products = this.cartService.getItems() || [];
+    this.customer = this.cartService.getCustomer();
+    this.selectedAddress = this.cartService.getSelectedAddress();
+    this.addressFull = this.selectedAddress.street + ' - ' + this.selectedAddress.number + ', CEP: '+this.selectedAddress.zipcode;
   }
 
   finishOrder(ev: Event){
@@ -49,12 +40,20 @@ export class CheckoutComponent implements OnInit {
 
   convertToOrder(){
       this.checkout = new Checkout();
-      console.log(this.customer);
       this.checkout.customerId = this.customer.id;
-   //   this.checkout.addressId = 'endereco selecionado';
+      this.checkout.payMethod = "CREDITCARD";
+      this.checkout.addressId = this.selectedAddress.id;
       this.checkout.productOrders = this.products.map(p=>{
-        return new ProductCheckout(String(p.id), p.qtd, p.amount, p.total);
+        let prodId, variantId
+        if(p.id == 0 ){
+          prodId = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // Mock
+          variantId = "5fb85f61-5717-4562-b3fc-2c963f66cfb1"; // Mock
+        }else{
+          prodId = String(p.id);
+        }
+        return new ProductCheckout(prodId, variantId, p.qtd, p.amount, p.total);
       });
+      console.log("checkout", this.customer);
   }
 
   updateQtd(product: ProductData, raise: boolean, ev: Event) {

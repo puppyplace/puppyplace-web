@@ -14,6 +14,6 @@ class Checkout implements CustomerOrder{
 
 class ProductCheckout implements ProductOrder{
     
-    constructor(public productId: string, public unitPrice: number,
+    constructor(public productId: string, public variantId: string, public unitPrice: number,
          public quantity: number, public totalPrice: number, public id?: string){ }
 }
