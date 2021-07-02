@@ -17,6 +17,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AuthService } from './shared/services/auth.service';
     SignUpComponent,
     SignInComponent,
     VerifyEmailComponent,
-    SignInComponent
+    ForgotPasswordComponent,
   ],
   imports: [
     SharedModule,
