@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductData } from 'src/app/models/carousel-data.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { CheckoutService } from 'src/app/shared/services/checkout.service';
-import { Checkout, ProductCheckout} from './checkout'
+import { Checkout, ProductCheckout} from './checkout';
+import { Address } from 'src/app/models/address.interface';
+import { Customer } from 'src/app/models/customer.interface';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { CustomerService } from 'src/app/shared/services/customer.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,26 +18,38 @@ export class CheckoutComponent implements OnInit {
   products: Array<ProductData>;
   deliveryValue: number;
   checkout: Checkout;
+  public customer: Customer;
+  selectedAddress : Address;
     
   constructor(
-    private cartService: CartService, private checkoutService: CheckoutService) { }
+    private cartService: CartService, 
+    private checkoutService: CheckoutService,
+    private customerService: CustomerService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.deliveryValue = 10;
+    const userLogged =  this.authService.GetUser();
+    this.customerService
+        .findByEmail(userLogged.email)
+        .subscribe(result => {
+          this.customer = result as Customer;
+          console.log('init', this.customer);
+    }, error => {
+      console.log('error', error)
+    })
     this.products = this.cartService.getItems() || [];
   }
 
   finishOrder(ev: Event){
     ev.preventDefault();
     this.convertToOrder();
-    console.log(this.checkout);
     this.checkoutService.create(this.checkout);
-    console.log('enviado backend');
   }
 
   convertToOrder(){
       this.checkout = new Checkout();
-   //   this.checkout.customerId = 'pegar ID do Cliente';
+      this.checkout.customerId = this.customer.id;
    //   this.checkout.addressId = 'endereco selecionado';
       this.checkout.productOrders = this.products.map(p=>{
         return new ProductCheckout(String(p.id), p.qtd, p.amount, p.total);

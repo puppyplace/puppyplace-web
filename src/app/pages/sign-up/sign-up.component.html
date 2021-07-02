@@ -1,26 +1,26 @@
 <app-header></app-header>
 
 <div class="container px-0 position-relative mt-5 pt-5">
-    <div class="displayTableCell">
+    <div class="displayTableCell col-md-4">
 
         <div class="authBlock">
             <h3>Sign Up</h3>
 
-            <div class="formGroup">
-                <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
             </div>
 
-            <div class="formGroup">
-                <input type="password" class="formControl" placeholder="Password" #userPwd required>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" #userPwd required>
             </div>
 
-            <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Sign Up"
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" value="Sign Up"
                     (click)="authService.SignUp(userEmail.value, userPwd.value)">
             </div>
 
-            <div class="formGroup">
-                <span class="or"><span class="orInner">Or</span></span>
+            <div class="form-group">
+                <span class="or"><span class="or-inner">Or</span></span>
             </div>
 
         </div>
