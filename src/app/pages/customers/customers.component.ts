@@ -36,7 +36,7 @@ export class CustomersComponent implements OnInit {
           this.customer = result as Customer;
           console.log('init', this.customer)
           this.initForm();
-        //  this.initAddressForm();
+         this.initAddressForm();
     }, error => {
       console.log('error', error)
     })
@@ -46,8 +46,8 @@ export class CustomersComponent implements OnInit {
 
   initForm(): void {
     this.customerForm = new FormGroup({
-      first_name: new FormControl(this.getFieldValue('name'), [ Validators.required ]),
-      last_name: new FormControl(this.getFieldValue('name'), [ Validators.required ]),
+      first_name: new FormControl(this.getFieldValue('first_name'), [ Validators.required ]),
+      last_name: new FormControl(this.getFieldValue('last_name'), [ Validators.required ]),
       document: new FormControl(this.getFieldValue('document'), [ Validators.required ]),
       email: new FormControl(this.getFieldValue('email'), [ Validators.required ]),
       cellphone: new FormControl(this.getFieldValue('cellphone')),
@@ -77,6 +77,7 @@ export class CustomersComponent implements OnInit {
     };
 
     formData.id = this.customer.id;
+
     let request$: Observable<Customer>;
     request$ = this.customerService.update(formData);
     // // faz o request e manda para a tela de produtos
