@@ -30,6 +30,8 @@ export class CategoriesManagerComponent implements OnInit {
       if (!!params.id) {
         this.upadteFlag = true;
         this.categroyId = params.id;
+        this.categoryService.getOne(this.categroyId)
+          .subscribe(res => this.categoryName = res.name);
       }
     });
   }
@@ -39,11 +41,10 @@ export class CategoriesManagerComponent implements OnInit {
 
     let request$: Observable<Category> = null;
 
-    if (!this.upadteFlag) {
+    if (!this.upadteFlag) { // se caso nao for um update, deve seguir o fluxo de criacao
       request$ = this.categoryService.create({ name: this.categoryName });
-    } else {
-      // TODO: aplicar o update de categoria, usar request$
-      console.log(this.categroyId);
+    } else { // se caso for um update, deve seguir o fluxo de update
+      request$ = this.categoryService.update({ id: this.categroyId, name: this.categoryName })
     }
 
     // faz o request e manda para a tela de categorias

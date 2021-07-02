@@ -16,4 +16,16 @@ export class CategoryManagerService {
   create(data: Category): Observable<Category> {
     return (this.api.post(this.url, data) as Observable<Category>);
   }
+
+  getAll(): Observable<Array<Category>> {
+    return (this.api.get(this.url) as Observable<Array<Category>>);
+  }
+
+  getOne(uuid: string): Observable<Category> {
+    return (this.api.get(`${this.url}/${uuid}`) as Observable<Category>);
+  }
+
+  update(category: Category): Observable<Category> {
+    return (this.api.put(`${this.url}/${category.id}`, category) as Observable<Category>);
+  }
 }
