@@ -49,6 +49,7 @@ export class CheckoutComponent implements OnInit {
 
   convertToOrder(){
       this.checkout = new Checkout();
+      console.log(this.customer);
       this.checkout.customerId = this.customer.id;
    //   this.checkout.addressId = 'endereco selecionado';
       this.checkout.productOrders = this.products.map(p=>{
