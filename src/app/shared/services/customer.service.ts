@@ -23,7 +23,6 @@ export class CustomerService {
   }
 
   update(customer: Customer): Observable<Customer> {
-    console.log('service', customer)
     return (this.api.put(`${this.url}/${customer.id}`, customer) as Observable<Customer>);
   }
 

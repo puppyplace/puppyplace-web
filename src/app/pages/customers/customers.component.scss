@@ -75,10 +75,13 @@
       color: var(--gray-3);
       letter-spacing: 0.05em;
       text-shadow: 0px 8.05px 11px rgba(0, 0, 0, 0.2);
+      z-index: 2;
 
-      &.is-main {
-        font-weight: bold;
-      }
     }
+    
+    .is-main {
+      font-weight: bold;
+    }
+
   }
 }
