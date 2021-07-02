@@ -1,0 +1,12 @@
+.recover-alert {
+  display: none;
+
+  &.recover-alert-show {
+    display: block !important;
+  }
+}
+
+form input[type="submit"]{
+  background: var(--complementary-color) !important;
+  color: var(--light-color);
+}
