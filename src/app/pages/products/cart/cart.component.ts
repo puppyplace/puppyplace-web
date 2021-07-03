@@ -56,7 +56,7 @@ export class CartComponent implements OnInit, AfterViewInit {
       product.qtd--;
     }
 
-    product.total = product.amount * product.qtd;
+    product.total = product.price * product.qtd;
     this.cartService.updateItem(product);
   }
 

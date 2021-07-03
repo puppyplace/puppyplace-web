@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { LeadService } from './services/lead.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './services/cart.service';
+import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
 import { CheckoutService } from './services/checkout.service'
 
@@ -21,6 +22,7 @@ import { CheckoutService } from './services/checkout.service'
     ProductListManagerComponent
   ],
   providers: [
+    ProductService,
     LeadService,
     CartService,
     CustomerService,

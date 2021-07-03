@@ -17,29 +17,33 @@
     <div class="col-lg-9 px-0">
 
       <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <ng-container *ngFor="let product of products; let i = index">
+        <ng-container *ngFor="let product of products">
           <div class="box-product py-3 px-4">
             <div class="box-image-holder">
-              <img class="w-50 offset-4" [src]="product.image">
+              <img class="w-50 offset-4" [src]="product.avatar_url">
             </div>
             <div class="mt-3">
               <p class="font-weight-bold title"> <span> {{ product.title }} </span> </p>
               <p class="description"> {{ product.description }} </p>
               <p class="font-weight-bold price"> {{ product.amount | currency: 'BRL' }} </p>
-              <a [routerLink]="['/products/' + i]" class="btn col-md-12 product-button"> Ver produto </a>
+              <a [routerLink]="['/products/' + product.id]" class="btn col-md-12 product-button"> Ver produto </a>
             </div>
           </div>
         </ng-container>
       </div>
 
-      <ul id="pagination" class="list-unstyled d-flex justify-content-end align-items-center mt-3">
-        <li class="mx-2 pagination-num"> ◄ </li>
-        <li class="mx-2 pagination-num active"> 1 </li>
-        <li class="mx-2 pagination-num "> 2 </li>
-        <li class="mx-2 pagination-num "> 3 </li>
-        <li class="mx-2 pagination-num "> 4 </li>
-        <li class="mx-2 pagination-num"> ► </li>
-      </ul>
+      <ng-container *ngIf="pages.length > 1">
+        <ul id="pagination" class="list-unstyled d-flex justify-content-end align-items-center mt-3">
+          <li (click)="changePageByArrow(false)" class="mx-2 pagination-num"> ◄ </li>
+          <ng-container *ngFor="let page of pages; let i = index">
+            <li
+            (click)="changePageByNum(page)"
+            [ngClass]="{'active': page === currentPage}"
+            class="mx-2 pagination-num"> {{ page }} </li>
+          </ng-container>
+          <li (click)="changePageByArrow(true)" class="mx-2 pagination-num"> ► </li>
+        </ul>
+      </ng-container>
     </div>
   </div>
 

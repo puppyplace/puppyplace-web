@@ -1,26 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { ProductService } from 'src/app/shared/services/product.service';
+
 import { Product } from '../../models/product.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-  private url = `${environment.BASE_BACKEND_URL}/product`;
-
+export class ProductManagerService extends ProductService {
+  
   constructor(
-    private api: HttpClient
-  ) { }
-
-  getAll(): Observable<Array<Product>> {
-    return (this.api.get(this.url) as Observable<Array<Product>>);
-  }
-
-  getOne(id: string): Observable<Product> {
-    return (this.api.get(`${this.url}/${id}`) as Observable<Product>);
-  }
+    protected api: HttpClient
+  ) { super(api); }
 
   create(data: Product): Observable<Product> {
     return (this.api.post(this.url, data) as Observable<Product>);

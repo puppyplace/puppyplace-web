@@ -6,6 +6,9 @@
         <label class="font-weight-bold" for=""> Categoria </label>
         <select class="form-control" name="" id="">
           <option value=""> Selecione </option>
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </option>
         </select>
       </div>
     </div>

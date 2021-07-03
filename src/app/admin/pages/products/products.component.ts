@@ -1,9 +1,9 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PRODUCTS_MOCK } from '../../mocks/products.mock';
-import { Product } from '../../models/product.interface';
-import { ProductService } from '../../shared/services/product.service';
 import { map } from 'rxjs/operators';
+
+import { Product } from '../../models/product.interface';
+import { ProductManagerService } from '../../shared/services/product-manager.service';
 
 @Component({
   selector: 'app-products',
@@ -15,12 +15,12 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productService: ProductService
+    private productService: ProductManagerService
   ) { }
 
   ngOnInit(): void {
     this.getAllProducts();
-    this.products = PRODUCTS_MOCK;
+    this.products = null;
   }
 
   getAllProducts() {

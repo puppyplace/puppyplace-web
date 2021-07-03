@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
-import { Product } from 'src/app/models/product.interface';
-import { PRODUCT_DATA } from 'src/app/mocks/product-data.mock';
-import { CartService } from 'src/app/shared/services/cart.service';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Product } from 'src/app/admin/models/product.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -19,21 +19,27 @@ export class ProductComponent implements OnInit {
   public quantity: number;
   public product: Product;
   public variantIndex: number = 0;
-  public productId: number;
+  public productId: string;
 
   constructor(
     private cartService: CartService,
     private activeRouter: ActivatedRoute,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
-    this.product = PRODUCT_DATA;
+    this.product = null;
     this.quantity = 1;
-    this.updateTotal();
+    this.total = 0;
 
     this.activeRouter.params.subscribe(res => {
-      this.productId = (res.id as number);
+      this.productId = res.id;
+      this.productService.getOne(this.productId)
+        .subscribe(res => {
+          this.product = res;
+          this.updateTotal();
+        })
     })
   }
 
@@ -49,7 +55,7 @@ export class ProductComponent implements OnInit {
   }
 
   public incrementQuantity() {
-    if(this.quantity < this.product.variant[this.variantIndex].amount) {
+    if(this.quantity < this.product.variants[this.variantIndex].stock) {
       this.quantity++;
       this.updateTotal();
     }
@@ -60,17 +66,33 @@ export class ProductComponent implements OnInit {
       this.updateTotal();
     }
   }
-    
-  public updateTotal() {
-    this.total = this.product.variant[this.variantIndex].price_promotional * this.quantity;
+
+
+  checkProductValue(): number {
+    let value: number;
+
+    try {
+      value = this.product.variants[this.variantIndex].price;
+      if (!!this.product.variants[this.variantIndex].price_promotional) {
+        value = this.product.variants[this.variantIndex].price_promotional;
+      }
+    } catch (err) {
+      value = 0;
+    }
+
+    return value;
   }
-  
+
+  public updateTotal() {
+    this.total = this.checkProductValue() * this.quantity;
+  }
+
   public filter(el: HTMLElement, e: Event, index: number) {
     e.preventDefault();
     this.variantIndex = index;
     this.quantity = 1;
     this.updateTotal();
-    
+
     const filters = this.btnOptions.toArray();
 
     filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('selected'));
@@ -78,10 +100,18 @@ export class ProductComponent implements OnInit {
   }
 
   public addItemToCart() {
-    const price = this.product.variant[this.variantIndex].price_promotional;
-    
-    this.cartService.addItem({ ...this.product, qtd: this.quantity, 
-      id: this.productId, amount: price, total: this.total});
+    const price = this.checkProductValue();
+
+    this.cartService.addItem({
+      variant: this.product.variants[this.variantIndex],
+      title: this.product.title,
+      avatar_url: this.product.avatar_url,
+      price: price,
+      total: this.total,
+      qtd: this.quantity,
+      id: this.product.id
+    });
+
     this.open(this.modal);
   }
 

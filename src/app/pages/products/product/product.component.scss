@@ -3,7 +3,7 @@
 }
 
 .product {
-    
+
     nav {
         --bs-breadcrumb-divider: '>';
 
@@ -18,13 +18,12 @@
         justify-content: center;
         width: 576px;
         height: 451.74px;
-        
+
         background: var(--primary-color-light-3);
         border: 1px solid var(--primary-color-light-2);
         box-sizing: border-box;
-        filter: blur(2px);
         border-radius: 8px;
-    
+
         img {
             width: 40%;
             filter: drop-shadow(0px 11.6496px 9.31967px rgba(0, 0, 0, 0.2)) drop-shadow(0px 15.5328px 31.0656px rgba(0, 0, 0, 0.3));
@@ -32,7 +31,7 @@
     }
 }
 
-.product-info { 
+.product-info {
 
     h2 {
         font-family: Montserrat;
@@ -58,7 +57,7 @@
         font-family: Source Sans Pro;
         letter-spacing: 0.05em;
         color: var(--light-color);
-       
+
         &:hover {
             background: var(--secondary-color-light-4);
             color: var(--gray-3);
@@ -67,7 +66,7 @@
         &.selected {
             background: var(--secondary-color-light-1);
             box-shadow: 0px 4px 4px var(--transparent-color);
-            
+
 
             &:hover {
                 background: var(--secondary-color);

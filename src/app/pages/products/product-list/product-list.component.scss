@@ -24,6 +24,7 @@
 
 .pagination-num {
   color: var(--primary-color-light-1);
+  cursor: pointer;
   &.active {
     color: var(--primary-color-dark-1) !important;
     font-weight: bold;

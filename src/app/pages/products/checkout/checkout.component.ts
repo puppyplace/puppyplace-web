@@ -56,7 +56,7 @@ export class CheckoutComponent implements OnInit {
       console.log("checkout", this.customer);
   }
 
-  updateQtd(product: ProductData, raise: boolean, ev: Event) {
+  updateQtd(product: any, raise: boolean, ev: Event) {
     ev.preventDefault();
     if (!raise && product.qtd === 1) return;
 

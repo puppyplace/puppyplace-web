@@ -11,7 +11,14 @@
       <button
       [disabled]="categoryName === ''"
       (click)="finishForm($event)"
-      class="btn btn-primary"> Cadastrar Categoria </button>
+      class="btn btn-primary">
+        <ng-container *ngIf="upadteFlag">
+          Atualizar Categoria
+        </ng-container>
+        <ng-container *ngIf="!upadteFlag">
+          Cadastrar Categoria
+        </ng-container>
+      </button>
     </form>
 
   </div>

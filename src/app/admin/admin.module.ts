@@ -10,11 +10,11 @@ import { ProductsManagerComponent } from './pages/products-manager/products-mana
 import { ProductsComponent } from './pages/products/products.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { CategoriesManagerComponent } from './pages/categories-manager/categories-manager.component';
-import { CategoryService } from './shared/services/category.service';
+import { CategoryManagerService } from './shared/services/category-manager.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductService } from './shared/services/product.service';
+import { ProductManagerService } from './shared/services/product-manager.service';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ import { ProductService } from './shared/services/product.service';
     RouterModule
   ],
   providers: [
-    CategoryService,
-    ProductService
+    CategoryManagerService,
+    ProductManagerService
   ]
 })
 export class AdminModule { }
