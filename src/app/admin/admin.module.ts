@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductManagerService } from './shared/services/product-manager.service';
+import { UploadService } from './shared/services/upload.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProductManagerService } from './shared/services/product-manager.service
   ],
   providers: [
     CategoryManagerService,
-    ProductManagerService
+    ProductManagerService,
+    UploadService
   ]
 })
 export class AdminModule { }

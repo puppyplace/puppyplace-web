@@ -73,9 +73,9 @@
                 <div class="form-group">
                   <select class="form-control"  [(ngModel)]="selectedAddress" >
                     <option [ngValue]="null" disabled>Escolha o endereço para entrega</option>
-                    <option *ngFor="let a of customer.addresses" [ngValue]="a.id">
+                    <option *ngFor="let a of customer?.addresses" [ngValue]="a.id">
                       {{a.street}} - {{a.number}}, {{a.state}}, CEP: {{a.zipcode}}</option>
-                  </select> 
+                  </select>
                 </div>
               </div>
 

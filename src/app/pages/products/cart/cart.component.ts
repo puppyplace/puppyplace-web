@@ -25,7 +25,7 @@ export class CartComponent implements OnInit, AfterViewInit {
     private modalService: NgbModal,
     private router: Router
     ) { }
-  
+
   ngAfterViewInit(): void {
     if (this.products.length === 0) {
       this.open();
@@ -33,9 +33,14 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.deliveryInput = '';
-    this.customer = this.cartService.getCustomer();
     this.products = this.cartService.getItems() || [];
+
+    try {
+      this.deliveryInput = '';
+      this.customer = this.cartService.getCustomer();
+    } catch (err) {
+      this.router.navigate(['/sign-in']);
+    }
   }
 
   open() {
@@ -44,7 +49,7 @@ export class CartComponent implements OnInit, AfterViewInit {
       { ariaLabelledBy: 'modal-basic-title' }).dismissed.subscribe(res => {
         this.router.navigate(['/products']);
       })
-  } 
+  }
 
   updateQtd(product: ProductData, raise: boolean, ev: Event) {
     ev.preventDefault();
@@ -72,7 +77,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   checkCartIsValid(): boolean {
     let flag = true;
-    
+
     if (this.products.length > 0
       && this.selectedAddress !== null
       && this.deliveryInput !== '') {
