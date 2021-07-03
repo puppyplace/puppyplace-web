@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProductData } from 'src/app/models/carousel-data.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { CheckoutService } from 'src/app/shared/services/checkout.service';
 import { Checkout, ProductCheckout} from './checkout';
 import { Address } from 'src/app/models/address.interface';
 import { Customer } from 'src/app/models/customer.interface';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements AfterViewInit, OnInit {
 
   products: Array<ProductData>;
   deliveryValue: number;
@@ -20,8 +22,12 @@ export class CheckoutComponent implements OnInit {
   selectedAddress: Address;
   addressFull: string;
 
+  @ViewChild('content') modal: ElementRef<NgbModal>;
+
   constructor(
     private cartService: CartService,
+    private modalService: NgbModal,
+    private router: Router,
     private checkoutService: CheckoutService) { }
 
   ngOnInit(): void {
@@ -29,7 +35,22 @@ export class CheckoutComponent implements OnInit {
     this.products = this.cartService.getItems() || [];
     this.customer = this.cartService.getCustomer();
     this.selectedAddress = this.cartService.getSelectedAddress();
-    this.addressFull = this.selectedAddress.street + ' - ' + this.selectedAddress.number + ', CEP: '+this.selectedAddress.zipcode;
+  }
+
+  ngAfterViewInit(): void {
+    try {
+      this.addressFull = this.selectedAddress.street + ' - ' + this.selectedAddress.number + ', CEP: '+this.selectedAddress.zipcode;
+    } catch (err) {
+      this.open();
+    }
+  }
+
+  open() {
+    this.modalService.open(
+      this.modal,
+      { ariaLabelledBy: 'modal-basic-title' }).dismissed.subscribe(res => {
+        this.router.navigate(['/profile']);
+      })
   }
 
   finishOrder(ev: Event){

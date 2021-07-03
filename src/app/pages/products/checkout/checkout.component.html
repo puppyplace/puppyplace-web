@@ -51,7 +51,7 @@
                     {{addressFull}}
                 </p>
             </div>
-            
+
             <div class="col-md-12 d-flex justify-content-between align-items-center px-0 mx-0">
                 <p class="d-flex justify-content-start col-md-6 font-weight-bold px-0 mx-0"> Entrega: PAC: Ate 10 dias uteis </p>
                 <p class="d-flex justify-content-end col-md-6 px-0 mx-0"> {{ 10 | currency:'BRL' }} </p>
@@ -63,8 +63,8 @@
 
             <div class="col-md-12 d-flex justify-content-end align-items-center px-0 mx-0">
                 <button class="btn btn-success w-25 font-weight-bold"
-                (click)="finishOrder($event)"> 
-                Finalizar 
+                (click)="finishOrder($event)">
+                Finalizar
                 </button>
             </div>
 
@@ -74,3 +74,18 @@
 
 </section>
 <app-footer></app-footer>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"> Atencao </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="text-center"> Voce nao possui endereco cadastrado! </p>
+  </div>
+  <div class="modal-footer modal-footer justify-content-center">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss()"> Cadastrar Endereco </button>
+  </div>
+</ng-template>
