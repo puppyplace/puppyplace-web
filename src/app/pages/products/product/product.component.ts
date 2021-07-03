@@ -55,7 +55,7 @@ export class ProductComponent implements OnInit {
   }
 
   public incrementQuantity() {
-    if(this.quantity < this.product.stock) {
+    if(this.quantity < this.product.variants[this.variantIndex].stock) {
       this.quantity++;
       this.updateTotal();
     }
@@ -66,33 +66,33 @@ export class ProductComponent implements OnInit {
       this.updateTotal();
     }
   }
-    
+
 
   checkProductValue(): number {
     let value: number;
-    
+
     try {
-      value = this.product.price;
-      if (!!this.product.promotional_price) {
-        value = this.product.promotional_price;
+      value = this.product.variants[this.variantIndex].price;
+      if (!!this.product.variants[this.variantIndex].price_promotional) {
+        value = this.product.variants[this.variantIndex].price_promotional;
       }
     } catch (err) {
       value = 0;
     }
-    
+
     return value;
   }
 
   public updateTotal() {
     this.total = this.checkProductValue() * this.quantity;
   }
-  
+
   public filter(el: HTMLElement, e: Event, index: number) {
     e.preventDefault();
     this.variantIndex = index;
     this.quantity = 1;
     this.updateTotal();
-    
+
     const filters = this.btnOptions.toArray();
 
     filters.map(arr => (arr.nativeElement as HTMLElement).classList.remove('selected'));
@@ -101,9 +101,17 @@ export class ProductComponent implements OnInit {
 
   public addItemToCart() {
     const price = this.checkProductValue();
-    
-    this.cartService.addItem({ ...this.product, qtd: this.quantity, 
-      id: this.productId, price: price, total: this.total });
+
+    this.cartService.addItem({
+      variant: this.product.variants[this.variantIndex],
+      title: this.product.title,
+      avatar_url: this.product.avatar_url,
+      price: price,
+      total: this.total,
+      qtd: this.quantity,
+      id: this.product.id
+    });
+
     this.open(this.modal);
   }
 

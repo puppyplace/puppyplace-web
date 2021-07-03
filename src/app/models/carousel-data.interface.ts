@@ -1,9 +1,12 @@
+import { ProductVariant } from "../admin/models/product.interface";
+
 export interface ProductData {
+  variant: ProductVariant,
   title: string,
-  description: string,
   avatar_url: string,
+  qtd?: number,
+  id?: string,
   price?: number,
   total?: number,
-  qtd?: number,
-  id?: string
+  description?: string
 }

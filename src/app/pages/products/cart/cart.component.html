@@ -27,7 +27,7 @@
                       <ng-container *ngFor="let product of products">
                           <tr class="col-md-12">
                               <td class="">
-                                  <img [src]="product.image" class="product-img" alt="">
+                                  <img [src]="product.avatar_url" class="product-img" alt="">
                               </td>
                               <td class=""> {{ product.title }} </td>
                               <td class="d-flex justify-content-between align-content-center quantity">
@@ -37,7 +37,7 @@
                                       <a (click)="updateQtd(product, true, $event)">+</a>
                                   </div>
                               </td>
-                              <td class=""> {{ product.amount | currency: 'BRL' }} </td>
+                              <td class=""> {{ product.price | currency: 'BRL' }} </td>
                               <td class=""> {{ product.total | currency: 'BRL' }} </td>
                               <td class=""> <a (click)="removeProduct(product, $event)" class="text-danger" href="#"> Remover </a>
                               </td>
@@ -77,14 +77,14 @@
               </div>
               <h3> Entrega </h3>
               <div class="d-flex justify-content-between align-items-center delivery-data">
-                <p class="px-0 d-flex justify-content-start align-items-center col-md-8"> 
-                  <input [(ngModel)]="deliveryInput" value="PAC" type="radio" name="delivery" id="option-1"> 
+                <p class="px-0 d-flex justify-content-start align-items-center col-md-8">
+                  <input [(ngModel)]="deliveryInput" value="PAC" type="radio" name="delivery" id="option-1">
                   &nbsp; <label for="option-1" class="d-flex mb-0"> PAC: Ate 10 dias uteis </label> </p>
                 <p class="px-0 d-flex justify-content-end col-md-4"> {{ 10 | currency:'BRL' }} </p>
               </div>
               <div class="d-flex justify-content-between align-items-center delivery-data">
-                <p class="px-0 d-flex justify-content-start align-items-center col-md-8"> 
-                  <input [(ngModel)]="deliveryInput" value="SEDEX" type="radio" name="delivery" id="option-2"> 
+                <p class="px-0 d-flex justify-content-start align-items-center col-md-8">
+                  <input [(ngModel)]="deliveryInput" value="SEDEX" type="radio" name="delivery" id="option-2">
                   &nbsp; <label for="option-2" class="d-flex mb-0"> SEDEX: Ate 1 dia util </label> </p>
                 <p class="px-0 d-flex justify-content-end col-md-4"> {{ 100 | currency:'BRL' }} </p>
               </div>
