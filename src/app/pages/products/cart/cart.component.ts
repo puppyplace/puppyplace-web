@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductData } from 'src/app/models/carousel-data.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { Address } from 'src/app/models/address.interface';
+import { Customer } from 'src/app/models/customer.interface';
 
 @Component({
   selector: 'app-cart',
@@ -14,14 +16,15 @@ export class CartComponent implements OnInit, AfterViewInit {
   @ViewChild('content') modal: ElementRef<NgbModal>;
 
   public products: Array<ProductData>;
-
-  public cepInput: string;
   public deliveryInput: string;
+  public customer: Customer;
+  public selectedAddress : string;
 
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
-    private router: Router) { }
+    private router: Router
+    ) { }
   
   ngAfterViewInit(): void {
     if (this.products.length === 0) {
@@ -30,9 +33,8 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.cepInput = '';
     this.deliveryInput = '';
-
+    this.customer = this.cartService.getCustomer();
     this.products = this.cartService.getItems() || [];
   }
 
@@ -42,8 +44,7 @@ export class CartComponent implements OnInit, AfterViewInit {
       { ariaLabelledBy: 'modal-basic-title' }).dismissed.subscribe(res => {
         this.router.navigate(['/products']);
       })
-    
-  }
+  } 
 
   updateQtd(product: ProductData, raise: boolean, ev: Event) {
     ev.preventDefault();
@@ -73,7 +74,7 @@ export class CartComponent implements OnInit, AfterViewInit {
     let flag = true;
     
     if (this.products.length > 0
-      && this.cepInput !== ''
+      && this.selectedAddress !== null
       && this.deliveryInput !== '') {
         flag = false;
       }
@@ -83,6 +84,8 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   sendToCheckout(ev: Event) {
     ev.preventDefault();
+    this.cartService.setSelectedAddress(this.selectedAddress);
+    console.log('address select: ', this.cartService.getSelectedAddress());
     this.router.navigate(['/products/checkout']);
   }
 }

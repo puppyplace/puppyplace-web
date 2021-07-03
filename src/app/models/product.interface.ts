@@ -5,7 +5,8 @@ export interface Product {
     categories: string[],
     especifications: Especification[],
     variant: Variant[],
-    details: string[]
+    details: string[], 
+    id?: string
   }
   
   interface Especification {
