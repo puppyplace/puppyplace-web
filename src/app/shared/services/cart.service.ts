@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ProductData } from 'src/app/models/carousel-data.interface';
+import { Address } from 'src/app/models/address.interface';
+import { Customer } from 'src/app/models/customer.interface';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { CustomerService } from 'src/app/shared/services/customer.service';
 
 // chave usada para armazenamento do storage
 const CART_STORAGE_KEY = 'cartStorageKey';
@@ -8,7 +12,13 @@ const CART_STORAGE_KEY = 'cartStorageKey';
   providedIn: 'root'
 })
 export class CartService {
-  constructor() { }
+
+  public customer: Customer;
+  public selectedAddress : Address;
+
+  constructor(
+    private customerService: CustomerService,
+    private authService: AuthService) { }
 
   private getStorage(): Array<ProductData> {
     try {
@@ -22,6 +32,31 @@ export class CartService {
   private updateStorage(products: Array<ProductData>): void {
     sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(products));
   }
+
+  public getCustomer(): Customer{
+    if(this.customer == null ){
+      const userLogged =  this.authService.GetUser();
+      this.customerService
+          .findByEmail(userLogged.email)
+          .subscribe(result => {
+            this.customer = result as Customer;
+            console.log('init', this.customer);
+      }, error => {
+        console.log('error', error)
+      })
+    }
+    
+    return this.customer;
+  }
+
+  public getSelectedAddress(): Address{
+    return this.selectedAddress;
+  }
+
+  public setSelectedAddress(idAddress: string): void{
+    this.selectedAddress = this.customer.addresses.find(a=> a.id == idAddress);
+  }
+
 
   public getItems(): Array<ProductData>{
     return this.getStorage();
