@@ -18,4 +18,16 @@ export class AddressService {
     return (this.api.post(`${this.url}/${customerID}/address`, address) as Observable<Address>);
   }
 
+  public update(customerID: string, address: Address): Observable<Address> {
+    return (this.api.put(`${this.url}/${customerID}/address/${address.id}`, address) as Observable<Address>);
+  }
+
+  public delete(customerID: string, addressID: string): Observable<string> {
+    return (this.api.delete(`${this.url}/${customerID}/address/${addressID}`) as Observable<string>);
+  }
+
+  public makeMain(customerID: string, addressID: string): Observable<string> {
+    return (this.api.patch(`${this.url}/${customerID}/address/${addressID}`, null) as Observable<string>);
+  }
+
 }
