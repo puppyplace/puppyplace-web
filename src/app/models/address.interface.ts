@@ -4,7 +4,7 @@ export interface Address {
     number: number;
     complement: string;
     state: string;
-    city: boolean;
+    city: string;
     district: string;
     zipcode: string;
     is_main: boolean;
