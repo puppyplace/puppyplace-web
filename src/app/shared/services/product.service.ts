@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/admin/models/product.interface';
@@ -14,7 +14,11 @@ export class ProductService {
     protected api: HttpClient
   ) { }
 
-  getAll(): Observable<Array<Product>> {
+  getAll(page?: number): Observable<Array<Product>> {
+    if (page) {
+      return (this.api.get(this.url, { params: { page:  page.toString(), size: '9'} }) as Observable<Array<Product>>);
+    }
+
     return (this.api.get(this.url) as Observable<Array<Product>>);
   }
 

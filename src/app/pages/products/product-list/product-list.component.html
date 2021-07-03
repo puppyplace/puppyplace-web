@@ -32,14 +32,16 @@
         </ng-container>
       </div>
 
-      <ng-container *ngIf="products?.length >= 10">
+      <ng-container *ngIf="pages.length > 1">
         <ul id="pagination" class="list-unstyled d-flex justify-content-end align-items-center mt-3">
-          <li class="mx-2 pagination-num"> ◄ </li>
-          <li class="mx-2 pagination-num active"> 1 </li>
-          <li class="mx-2 pagination-num "> 2 </li>
-          <li class="mx-2 pagination-num "> 3 </li>
-          <li class="mx-2 pagination-num "> 4 </li>
-          <li class="mx-2 pagination-num"> ► </li>
+          <li (click)="changePageByArrow(false)" class="mx-2 pagination-num"> ◄ </li>
+          <ng-container *ngFor="let page of pages; let i = index">
+            <li
+            (click)="changePageByNum(page)"
+            [ngClass]="{'active': page === currentPage}"
+            class="mx-2 pagination-num"> {{ page }} </li>
+          </ng-container>
+          <li (click)="changePageByArrow(true)" class="mx-2 pagination-num"> ► </li>
         </ul>
       </ng-container>
     </div>
