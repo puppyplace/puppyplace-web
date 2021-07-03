@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductData } from 'src/app/models/carousel-data.interface';
 
 @Component({
@@ -31,7 +32,8 @@ export class ProductSliderComponent implements OnInit {
   public carouselProductsData: Array<ProductData>;
 
   constructor(
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {
     this.animationValue = 0;
   }
@@ -69,5 +71,9 @@ export class ProductSliderComponent implements OnInit {
 
   getMarginAsNumber(margin: string): number {
     return Number(margin.replace(/px/g, ''));
+  }
+
+  goToProduct(id) {
+    this.router.navigate([`/products/${id}`]);
   }
 }

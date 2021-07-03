@@ -19,9 +19,9 @@ export class CheckoutComponent implements OnInit {
   customer: Customer;
   selectedAddress: Address;
   addressFull: string;
-    
+
   constructor(
-    private cartService: CartService, 
+    private cartService: CartService,
     private checkoutService: CheckoutService) { }
 
   ngOnInit(): void {
@@ -45,13 +45,13 @@ export class CheckoutComponent implements OnInit {
       this.checkout.addressId = this.selectedAddress.id;
       this.checkout.productOrders = this.products.map(p=>{
         let prodId, variantId
-        if(p.id == 0 ){
+        if(p.id === null ){
           prodId = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // Mock
           variantId = "5fb85f61-5717-4562-b3fc-2c963f66cfb1"; // Mock
         }else{
           prodId = String(p.id);
         }
-        return new ProductCheckout(prodId, variantId, p.qtd, p.amount, p.total);
+        return new ProductCheckout(prodId, variantId, p.qtd, p.price, p.total);
       });
       console.log("checkout", this.customer);
   }

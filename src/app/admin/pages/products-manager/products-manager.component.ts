@@ -97,7 +97,7 @@ export class ProductsManagerComponent implements OnInit {
     this.productSpecificationForm.push(builder);
   }
 
-  removeVariantForm(index: number) {
+  removeSpecificationForm(index: number) {
     if (this.productSpecificationForm.length === 1) return;
     this.productSpecificationForm = this.productSpecificationForm.filter((arr, i) => i !== index);
   }
@@ -126,6 +126,11 @@ export class ProductsManagerComponent implements OnInit {
     });
 
     this.productVariantForm.push(builder);
+  }
+
+  removeVariantProductForm(index: number) {
+    if (this.productVariantForm.length === 1) return;
+    this.productVariantForm = this.productVariantForm.filter((arr, i) => i !== index);
   }
 
   /**

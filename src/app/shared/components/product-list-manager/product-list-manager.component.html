@@ -4,7 +4,7 @@
     <div class="mt-4">
       <div class="form-group">
         <label class="font-weight-bold" for=""> Categoria </label>
-        <select class="form-control" name="" id="">
+        <select (change)="selectCategory($event)" class="form-control" name="" id="">
           <option value=""> Selecione </option>
           <option *ngFor="let category of categories" [value]="category.id">
             {{ category.name }}

@@ -10,6 +10,7 @@ import { CategoryManagerService } from 'src/app/admin/shared/services/category-m
 })
 export class ProductListManagerComponent implements OnInit {
   public categories: Array<Category>;
+  public categorySelected: Category;
 
   constructor(
     private categoryService: CategoryManagerService
@@ -25,6 +26,10 @@ export class ProductListManagerComponent implements OnInit {
     this.categoryService.getAll()
     .pipe(map((response: any) => (response.content !== undefined ? response.content : [])))
     .subscribe(res => this.categories = res);
+  }
+
+  selectCategory(cat) {
+    console.log(cat.target.data);
   }
 
 }
