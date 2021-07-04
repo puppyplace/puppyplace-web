@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  BASE_BACKEND_URL: 'https://puppyplace-api-dev.herokuapp.com',
+  BASE_BACKEND_URL: 'https://puppyplace-api-dev.azurewebsites.net',
   PAYMENT_URL: 'http://puppyplace-pagamentos-api.azurewebsites.net/v1/pagamento',
   firebase: {
     apiKey: "AIzaSyCKnpAWaCywc-4MmZPU_GX-WNpM4Gs6fv8",
