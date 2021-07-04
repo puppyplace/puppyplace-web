@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BASE_BACKEND_URL: 'http://localhost:8080',
-  
+  PAYMENT_URL: 'http://localhost:3000/v1/pagamento',
   firebase: {
     apiKey: "AIzaSyCKnpAWaCywc-4MmZPU_GX-WNpM4Gs6fv8",
     authDomain: "puppyplace-stg.firebaseapp.com",

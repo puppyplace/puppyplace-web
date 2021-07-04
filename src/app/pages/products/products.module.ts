@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
+import { PaymentService } from 'src/app/shared/services/payment.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,9 @@ import { FormsModule } from '@angular/forms';
     ProductsRoutingModule,
     SharedModule,
     FormsModule
+  ],
+  providers: [
+    PaymentService
   ]
 })
 export class ProductsModule { }

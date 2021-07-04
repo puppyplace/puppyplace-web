@@ -24,13 +24,13 @@
                             <ng-container *ngFor="let product of products">
                                 <tr class="col-md-12">
                                     <td class="">
-                                        <img [src]="product.image" class="product-img" alt="">
+                                        <img [src]="product.avatar_url" class="product-img" alt="">
                                     </td>
                                     <td class=""> {{ product.title }} </td>
                                     <td class="d-flex justify-content-between align-content-center quantity">
                                         {{ product.qtd }}
                                     </td>
-                                    <td class=""> {{ product.amount | currency: 'BRL' }} </td>
+                                    <td class=""> {{ product.price | currency: 'BRL' }} </td>
                                     <td class=""> {{ product.total | currency: 'BRL' }} </td>
                                     <td class=""> <a (click)="removeProduct(product, $event)" class="text-danger"
                                             href="#"> Remover </a>
