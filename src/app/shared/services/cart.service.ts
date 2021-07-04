@@ -28,35 +28,10 @@ export class CartService {
       return [];
     }
   }
-  
+
   private updateStorage(products: Array<ProductData>): void {
     sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(products));
   }
-
-  public getCustomer(): Customer{
-    if(this.customer == null ){
-      const userLogged =  this.authService.GetUser();
-      this.customerService
-          .findByEmail(userLogged.email)
-          .subscribe(result => {
-            this.customer = result as Customer;
-            console.log('init', this.customer);
-      }, error => {
-        console.log('error', error)
-      })
-    }
-    
-    return this.customer;
-  }
-
-  public getSelectedAddress(): Address{
-    return this.selectedAddress;
-  }
-
-  public setSelectedAddress(idAddress: string): void{
-    this.selectedAddress = this.customer.addresses.find(a=> a.id == idAddress);
-  }
-
 
   public getItems(): Array<ProductData>{
     return this.getStorage();
@@ -64,18 +39,18 @@ export class CartService {
 
   /**
    * adicona um novo elemento ao carrinho
-   * @param product 
+   * @param product
    */
   public addItem(product: ProductData) {
     try {
       const storage = this.getStorage() || [];
-      
+
       // se o item ja foi adicionado antes, apenas atualiza o carrinho
       if (storage.findIndex(pro => pro.id === product.id) > -1) {
         this.updateItem(product);
         return;
       }
-      
+
       storage.push(product);
 
       this.updateStorage(storage);
@@ -86,7 +61,7 @@ export class CartService {
 
   /**
    * remove um elemento do carrinho
-   * @param product 
+   * @param product
    */
   public removeItem(product: ProductData) {
     try {
@@ -101,7 +76,7 @@ export class CartService {
 
   /**
    * atualiza um elemento do carrinho
-   * @param product 
+   * @param product
    */
   public updateItem(product: ProductData) {
     try {

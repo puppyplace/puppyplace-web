@@ -1,10 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/compiler/src/compiler_facade_interface';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductData } from 'src/app/models/carousel-data.interface';
-import { CartService } from 'src/app/shared/services/cart.service';
-import { Address } from 'src/app/models/address.interface';
 import { Customer } from 'src/app/models/customer.interface';
+import { AddressService } from 'src/app/shared/services/address.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { CartService } from 'src/app/shared/services/cart.service';
+import { CustomerService } from 'src/app/shared/services/customer.service';
 
 @Component({
   selector: 'app-cart',
@@ -23,19 +26,44 @@ export class CartComponent implements OnInit, AfterViewInit {
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
-    private router: Router
+    private adressService: AddressService,
+    private router: Router,
+    private cdr: ChangeDetectorRef,
+    private authService: AuthService,
+    private customerService: CustomerService
     ) { }
-  
+
   ngAfterViewInit(): void {
     if (this.products.length === 0) {
       this.open();
     }
+
+    this.cdr.detectChanges();
   }
 
   ngOnInit(): void {
-    this.deliveryInput = '';
-    this.customer = this.cartService.getCustomer();
     this.products = this.cartService.getItems() || [];
+
+    try {
+      this.deliveryInput = '';
+      this.customer = null;
+      this.getCustomer();
+
+    } catch (err) {
+      this.router.navigate(['/sign-in']);
+    }
+  }
+
+
+  public async getCustomer() {
+    const userLogged =  this.authService.GetUser();
+    this.customerService
+      .findByEmail(userLogged.email)
+      .subscribe(result => {
+        this.customer = result as Customer;
+    }, error => {
+      console.log('error', error)
+    })
   }
 
   open() {
@@ -44,7 +72,7 @@ export class CartComponent implements OnInit, AfterViewInit {
       { ariaLabelledBy: 'modal-basic-title' }).dismissed.subscribe(res => {
         this.router.navigate(['/products']);
       })
-  } 
+  }
 
   updateQtd(product: ProductData, raise: boolean, ev: Event) {
     ev.preventDefault();
@@ -72,7 +100,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   checkCartIsValid(): boolean {
     let flag = true;
-    
+
     if (this.products.length > 0
       && this.selectedAddress !== null
       && this.deliveryInput !== '') {
@@ -82,10 +110,14 @@ export class CartComponent implements OnInit, AfterViewInit {
     return flag;
   }
 
+  public setSelectedAddress(idAddress: string): void{
+    const address = this.customer.addresses.find(a=> a.id == idAddress);
+    this.adressService.addItem(address);
+  }
+
   sendToCheckout(ev: Event) {
     ev.preventDefault();
-    this.cartService.setSelectedAddress(this.selectedAddress);
-    console.log('address select: ', this.cartService.getSelectedAddress());
+    this.setSelectedAddress(this.selectedAddress);
     this.router.navigate(['/products/checkout']);
   }
 }

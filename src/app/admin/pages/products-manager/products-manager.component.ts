@@ -8,6 +8,7 @@ import { Category } from '../../models/category.interface';
 import { Product, ProductDetail, ProductSpecification, ProductVariant } from '../../models/product.interface';
 import { CategoryManagerService } from '../../shared/services/category-manager.service';
 import { ProductManagerService } from '../../shared/services/product-manager.service';
+import { UploadService } from '../../shared/services/upload.service';
 
 @Component({
   selector: 'app-products-manager',
@@ -27,10 +28,13 @@ export class ProductsManagerComponent implements OnInit {
   public categorySelected: string;
   public upadteFlag: boolean;
 
+  public file: any;
+
   constructor(
     private productService: ProductManagerService,
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryManagerService,
+    private uploadService: UploadService,
     private router: Router
   ) { }
 
@@ -151,6 +155,18 @@ export class ProductsManagerComponent implements OnInit {
 
   selectCategory(category: string) {
     this.categorySelected = category;
+  }
+
+  getFile(file) {
+    const formData = new FormData();
+    formData.append('file', file[0]);
+
+    this.uploadService.uploadFile(formData)
+      .subscribe(res => {
+        this.productForm.get('avatar_url').setValue(res);
+        console.log(this.productForm);
+      });
+
   }
 
   finishForm(ev: Event) {
