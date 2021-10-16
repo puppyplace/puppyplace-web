@@ -98,7 +98,7 @@ export class AuthService {
     const userData: User = {
       uid: user.idToken,
       email: user.email,
-      displayName: user.displayName,
+      displayName: user.displayName || null,
       photoURL: user.photoURL || null,
       emailVerified: user.emailVerified || true
     }
