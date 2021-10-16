@@ -18,6 +18,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { BffService } from './shared/services/bff/bff.service';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     CustomersComponent,
     SignUpComponent,
     SignInComponent,
-    VerifyEmailComponent,
-    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     SharedModule,
@@ -39,10 +39,12 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
-
+    AngularFirestoreModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    BffService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

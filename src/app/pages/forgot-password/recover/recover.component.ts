@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { BffService } from 'src/app/shared/services/bff/bff.service';
 
 @Component({
   selector: 'app-recover',
@@ -10,7 +11,7 @@ export class RecoverComponent implements OnInit {
   public showAlert: boolean;
 
   constructor(
-    public authService: AuthService
+    public bffService: BffService
   ) { }
 
   ngOnInit(): void {

@@ -16,18 +16,7 @@ export class AuthService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,  
     public ngZone: NgZone // NgZone service to remove outside scope warning
-  ) {    
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-      } else {
-        localStorage.setItem('user', null);
-      }
-    })
-  }
+  ) { }
 
   GetUser() {
     return JSON.parse(localStorage.getItem('user'));
@@ -103,14 +92,19 @@ export class AuthService {
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.localId}`);
+    console.log(userRef);
+    
     const userData: User = {
-      uid: user.uid,
+      uid: user.idToken,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      photoURL: user.photoURL || null,
+      emailVerified: user.emailVerified || true
     }
+
+    localStorage.setItem('user', JSON.stringify(userData));
+
     return userRef.set(userData, {
       merge: true
     })

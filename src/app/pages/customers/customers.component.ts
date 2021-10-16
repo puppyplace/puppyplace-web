@@ -7,7 +7,7 @@ import { Address } from 'src/app/models/address.interface';
 import { Customer } from 'src/app/models/customer.interface';
 import { Paw } from 'src/app/models/paw.interface';
 import { AddressService } from 'src/app/shared/services/address.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { BffService } from 'src/app/shared/services/bff/bff.service';
 import { CustomerService } from 'src/app/shared/services/customer.service';
 
 @Component({
@@ -55,13 +55,13 @@ export class CustomersComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private addressService: AddressService,
-    private authService: AuthService,
+    private bffService: BffService,
     private router: Router
     ) { }
 
   ngOnInit(): void {
     this.paws = PAW_DATA;
-    const userLogged =  this.authService.GetUser();
+    const userLogged =  this.bffService.GetUser();
 
     this.selectedAddress = this.cleanAddress;
     this.customer = this.cleanCustomer;

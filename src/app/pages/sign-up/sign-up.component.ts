@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Customer } from 'src/app/models/customer.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { BffService } from 'src/app/shared/services/bff/bff.service';
 import { CustomerService } from 'src/app/shared/services/customer.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class SignUpComponent implements OnInit {
   public customer: Customer;
 
   constructor(
-     public authService: AuthService,
+     public bffService: BffService,
      private customerService: CustomerService,
      private router: Router
      ) { }
@@ -43,7 +44,7 @@ export class SignUpComponent implements OnInit {
     };
     console.log('formData',formData)
 
-    this.authService.SignUp(formData.email, formData.password)
+    this.bffService.SignUp(formData.email, formData.password)
 
     let request$: Observable<Customer>;
    

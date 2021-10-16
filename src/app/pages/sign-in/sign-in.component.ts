@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { BffService } from 'src/app/shared/services/bff/bff.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,13 +8,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public bffService: BffService) { }
 
   ngOnInit(): void {
   }
 
   public signin(e: Event, user: string, password: string) {
     e.preventDefault();
-    this.authService.SignIn(user, password);
+    this.bffService.SignIn(user, password);
   }
 }

@@ -12,6 +12,7 @@ import { CartService } from './services/cart.service';
 import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
 import { CheckoutService } from './services/checkout.service'
+import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CheckoutService } from './services/checkout.service'
     ProductSliderComponent,
     FooterComponent,
     PawComponent,
-    ProductListManagerComponent
+    ProductListManagerComponent,
+    ForgotPasswordComponent
   ],
   providers: [
     ProductService,
@@ -33,7 +35,8 @@ import { CheckoutService } from './services/checkout.service'
     ProductSliderComponent,
     FooterComponent,
     PawComponent,
-    ProductListManagerComponent
+    ProductListManagerComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     CommonModule,
